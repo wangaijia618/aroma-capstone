@@ -21,8 +21,8 @@ class Story(db.Model):
 #relationship
     user = db.relationship("User", back_populates="stories")
     # category = db.relationship("Category", back_populates="stories")
-    likes = db.relationship("Like", back_populate="story", cascade='all, delete-orphan')
-    comments = db.relationship("Comment", back_populate="story", cascade='all, delete-orphan')
+    likes = db.relationship("Like", back_populates="story", cascade='all, delete-orphan')
+    comments = db.relationship("Comment", back_populates="story", cascade='all, delete-orphan')
 
 
 #####################################

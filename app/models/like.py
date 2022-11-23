@@ -10,13 +10,13 @@ class Like(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    story_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('storiess.id')), nullable=False)
+    story_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('stories.id')), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
 
 
 #relationship
-    user = db.relationship("User", back_populates="comments")
-    story = db.relationship("Story", back_populates="comments")
+    user = db.relationship("User", back_populates="likes")
+    story = db.relationship("Story", back_populates="likes")
 
 
 #####################################
