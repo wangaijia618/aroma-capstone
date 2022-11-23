@@ -2,7 +2,7 @@ from app.models import db, Story, environment, SCHEMA
 
 def seed_stories():
     stories = [
-        Story()
+        Story(),
     ]
 
 
