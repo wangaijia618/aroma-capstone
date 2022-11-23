@@ -4,19 +4,19 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', bio='This is 100% the real demo user.', profile_photo='')
+        username='Demo', email='demo@aa.io', password='password', bio='This is 100% the real demo user.', profile_photo='https://images.pexels.com/photos/1759530/pexels-photo-1759530.jpeg?auto=compress&cs=tinysrgb&w=1600')
     mfk = User(
-        username='Francis724', email='mfk@aa.io', password='password', bio='I am new and amazing.', profile_photo='')
+        username='Francis724', email='mfk@aa.io', password='password', bio='I am new and amazing.', profile_photo='https://images.pexels.com/photos/1300345/pexels-photo-1300345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
     lutens = User(
-        username='Nuit de Cellophane', email='lutens@aa.io', password='password', bio='Nights in August are the best.', profile_photo='')
+        username='Nuit de Cellophane', email='lutens@aa.io', password='password', bio='Nights in August are the best.', profile_photo='https://images.pexels.com/photos/2791043/pexels-photo-2791043.jpeg?auto=compress&cs=tinysrgb&w=1600')
     another = User(
-        username='another13', email='another@aa.io', password='password', bio='musk! musk! musk!', profile_photo='')
+        username='another13', email='another@aa.io', password='password', bio='musk! musk! musk!', profile_photo='https://images.pexels.com/photos/1059979/pexels-photo-1059979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
     noir = User(
-        username='The Noir', email='noir@aa.io', password='password', bio='It is nice to meet you.', profile_photo='')
+        username='The Noir', email='noir@aa.io', password='password', bio='It is nice to meet you.', profile_photo='https://images.pexels.com/photos/3560168/pexels-photo-3560168.jpeg?auto=compress&cs=tinysrgb&w=1600')
     gaiac= User(
-        username='GaIac10', email='gaiac@aa.io', password='password', bio='looking forward to meeting you again in September', profile_photo='')
+        username='GaIac10', email='gaiac@aa.io', password='password', bio='looking forward to meeting you again in September', profile_photo='https://images.pexels.com/photos/3750777/pexels-photo-3750777.jpeg?auto=compress&cs=tinysrgb&w=1600')
     fragonard= User(
-        username='Fragonard', email='fragonard@aa.io', password='password', bio='Bonjour, everythins is just right~', profile_photo='')
+        username='Fragonard', email='fragonard@aa.io', password='password', bio='Bonjour, everythins is just right~', profile_photo='https://images.pexels.com/photos/8365659/pexels-photo-8365659.jpeg?auto=compress&cs=tinysrgb&w=1600')
 
     db.session.add(demo)
     db.session.add(mfk)
