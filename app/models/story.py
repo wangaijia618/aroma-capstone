@@ -19,8 +19,8 @@ class Story(db.Model):
 
 #relationship
     user = db.relationship("User", back_populates="stories")
-    likes = db.relationship("Like", back_populates="story", cascade='all, delete-orphan')
-    comments = db.relationship("Comment", back_populates="story", cascade='all, delete-orphan')
+    likes = db.relationship("Like", back_populates="story", cascade='all, delete')
+    comments = db.relationship("Comment", back_populates="story", cascade='all, delete')
 
 
 #####################################
@@ -64,8 +64,8 @@ class Story(db.Model):
             'Author': {
                 "id": self.user.id,
                 "username": self.user.username,
-                "bio": self.bio,
-                "profile_photo": self.profile_photo
+                "bio": self.user.bio,
+                "profile_photo": self.user.profile_photo
             }
         }
 
