@@ -24,14 +24,14 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.String(300))
     profile_photo = db.Column(db.String(300))
 
-    # followers = db.relationship(
-    #     "User",
-    #     secondary=follows,  #variable name line7
-    #     primaryjoin=(follows.c.followed_id == id),
-    #     secondaryjoin=(follows.c.follower_id == id),
-    #     backref=db.backref("following", lazy="dynamic"),
-    #     lazy="dynamic",
-    # )
+    followers = db.relationship(
+        "User",
+        secondary=follows,  #variable name line7
+        primaryjoin=(follows.c.followed_id == id),
+        secondaryjoin=(follows.c.follower_id == id),
+        backref=db.backref("following", lazy="dynamic"),
+        lazy="dynamic",
+    )
 
     likes = db.relationship("Like", back_populates='user', cascade='all, delete-orphan')
     comments = db.relationship("Comment", back_populates='user', cascade='all, delete-orphan')

@@ -6,45 +6,39 @@ def seed_stories():
             user_id=1,
             title='aaaaaaa',
             story='AUTHENTICATION REQUIRED: True',
-            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg',
-            created_at='2022-06-06 10:00:00',
-            updated_at='2022-06-06 11:12:13'),
+            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
          Story(
             user_id=1,
             title='bbbbbb',
             story='AUTHENTICATION REQUIRED: True',
-            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg',
-            created_at='2022-06-06 10:00:00',
-            updated_at='2022-06-06 11:12:13'),
+            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
+
          Story(
             user_id=1,
             title='ccccccccc',
             story='AUTHENTICATION REQUIRED: True',
-            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg',
-            created_at='2022-06-06 10:00:00',
-            updated_at='2022-06-06 11:12:13'),
+            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
+
          Story(
             user_id=1,
             title='ddddddddddd',
             story='AUTHENTICATION REQUIRED: True',
-            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg',
-            created_at='2022-06-06 10:00:00',
-            updated_at='2022-06-06 11:12:13'),
+            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
+
+
          Story(
             user_id=1,
             title='eeeeeeeeeee',
             story='AUTHENTICATION REQUIRED: True',
-            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg',
-            created_at='2022-06-06 10:00:00',
-            updated_at='2022-06-06 11:12:13'),
+            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
+
       #6
          Story(
             user_id=1,
             title='fffffffffffff',
             story='AUTHENTICATION REQUIRED: True',
-            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg',
-            created_at='2022-06-06 10:00:00',
-            updated_at='2022-06-06 11:12:13'),
+            img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg')
+
 
     ]
 
