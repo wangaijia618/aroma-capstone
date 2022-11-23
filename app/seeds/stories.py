@@ -2,7 +2,50 @@ from app.models import db, Story, environment, SCHEMA
 
 def seed_stories():
     stories = [
-        Story(),
+        Story(
+            user_id=1,
+            title='',
+            story='',
+            img='',
+            created_at='2022-06-06 10:00:00',
+            updated_at='2022-06-06 11:12:13'),
+         Story(
+            user_id=1,
+            title='',
+            story='',
+            img='',
+            created_at='2022-06-06 10:00:00',
+            updated_at='2022-06-06 11:12:13'),
+         Story(
+            user_id=1,
+            title='',
+            story='',
+            img='',
+            created_at='2022-06-06 10:00:00',
+            updated_at='2022-06-06 11:12:13'),
+         Story(
+            user_id=1,
+            title='',
+            story='',
+            img='',
+            created_at='2022-06-06 10:00:00',
+            updated_at='2022-06-06 11:12:13'),
+         Story(
+            user_id=1,
+            title='',
+            story='',
+            img='',
+            created_at='2022-06-06 10:00:00',
+            updated_at='2022-06-06 11:12:13'),
+      #6
+         Story(
+            user_id=1,
+            title='',
+            story='',
+            img='',
+            created_at='2022-06-06 10:00:00',
+            updated_at='2022-06-06 11:12:13'),
+
     ]
 
 
