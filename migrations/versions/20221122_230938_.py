@@ -30,7 +30,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['follower_id'], ['users.id'], )
     )
     if environment == "production":
-     op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
+     op.execute(f"ALTER TABLE follows SET SCHEMA {SCHEMA};")
     op.create_table('stories',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -43,7 +43,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-     op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
+     op.execute(f"ALTER TABLE stories SET SCHEMA {SCHEMA};")
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -55,7 +55,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-     op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
+     op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
     op.create_table('likes',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -66,8 +66,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-     op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
-     
+     op.execute(f"ALTER TABLE likes SET SCHEMA {SCHEMA};")
+
     op.add_column('users', sa.Column('bio', sa.String(length=300), nullable=True))
     op.add_column('users', sa.Column('profile_photo', sa.String(length=300), nullable=True))
     # ### end Alembic commands ###
