@@ -10,7 +10,6 @@ class Story(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    # category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('categories.id')), nullable=False)
     title = db.Column(db.String(1000), nullable=False)
     story = db.Column(db.Text, nullable=False)
     img = db.Column(db.String(1000), nullable=False)
@@ -20,7 +19,6 @@ class Story(db.Model):
 
 #relationship
     user = db.relationship("User", back_populates="stories")
-    # category = db.relationship("Category", back_populates="stories")
     likes = db.relationship("Like", back_populates="story", cascade='all, delete-orphan')
     comments = db.relationship("Comment", back_populates="story", cascade='all, delete-orphan')
 
