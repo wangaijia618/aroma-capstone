@@ -4,4 +4,7 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 
 
 class StoryForm(FlaskForm):
-  pass
+    title = StringField('title', validators=[DataRequired()])
+    content = TextAreaField('content', validators=[DataRequired()])
+    image_url = StringField('image_url')
+    submit = SubmitField('publish')

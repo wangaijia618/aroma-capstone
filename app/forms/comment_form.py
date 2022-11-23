@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 
 
 class CommentForm(FlaskForm):
-  pass
+  content = StringField('content', validators=[DataRequired()])

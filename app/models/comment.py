@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import datetime
 
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -10,10 +10,9 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    story_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('storiess.id')), nullable=False)
+    story_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('stories.id')), nullable=False)
     content = db.Column(db.String(1000), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True),
-                           nullable=False, server_default=db.func.now())
+    created_at = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
 
 
 #relationship
@@ -32,5 +31,6 @@ class Comment(db.Model):
             'User': {
                 "id": self.user.id,
                 "username": self.user.username,
+                "profile_photo": self.user.profile_photo,
             }
         }

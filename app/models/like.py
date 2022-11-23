@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import datetime
 
 class Like(db.Model):
     __tablename__ = "likes"
@@ -11,9 +11,7 @@ class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     story_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('storiess.id')), nullable=False)
-    content = db.Column(db.String(1000), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True),
-                           nullable=False, server_default=db.func.now())
+    created_at = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
 
 
 #relationship
@@ -26,11 +24,5 @@ class Like(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'story_id': self.story_id,
-            'content': self.content,
-            'created_at': self.created_at,
-            'User': {
-                "id": self.user.id,
-                "username": self.user.username,
-            }
+            'story_id': self.story_id
         }
