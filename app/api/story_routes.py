@@ -7,16 +7,28 @@ from app.forms import StoryForm, CommentForm
 
 story_routes = Blueprint('stories', __name__)
 
+
+#get all stories
 @story_routes.route("/")
 def get_all_stories():
     stories = Story.query.all()
     return {'stories': [story.preview_to_dict() for story in stories]}
 
-
+#get a single story
 @story_routes.route("/<int:id>")
 def get_one_story(id):
     story = Story.query.get(id)
+    if story is None:
+        return {'message': 'Story could not be found'}, 404
     return story.full_story_to_dict()
+
+
+@story_routes.route("/current")
+def get_my_stories():
+    filtered_stories = Story.query.filter(Story.user_id == current_user.id).all
+    if filtered_stories:
+        return {'Stories': [story.full_story_to_dict() for story in filtered_stories]}
+
 
 
 @story_routes.route('/new-story', methods=['POST'])
@@ -62,7 +74,66 @@ def edit_story(id):
 @story_routes.route('/<int:id>', methods=['DELETE'])
 def delete_story(id):
     story = Story.query.get(id)
+
+    if story.user_id is not current_user.id:
+        return {
+        "errors": "Unauthorized! You are not the owner of this story!"
+        }, 403
+
+    if story is None:
+        return {"errors":"Story couldn't be found"}, 404
+
     db.session.delete(story)
     db.session.commit()
-
     return "Story was successfully deleted."
+
+
+@story_routes.route("/<int:id>/comments")
+def get_story_comments(id):
+
+  story = Story.query.get(id)
+
+  if story is None:
+    return {"errors": "Product couldn't be found"}, 404
+
+  filtered_comments = Comment.query.filter(Comment.story_id == id).all()
+
+  if filtered_comments is not None:
+    return {"Comments": [comment.to_dict()
+                        for comment in filtered_comments]}, 200
+
+
+
+@story_routes.route('/<int:story_id>/comments', methods=['POST'])
+@login_required
+def create_story_comment(story_id):
+  curr_user_id = int(current_user.is_authenticated) and current_user.id
+  story = Story.query.get(story_id)
+  form = CommentForm()
+#   print(form.data)
+  if story:
+    if form.validate_on_submit:
+      comment = Comment(
+            content=form.data['content'],
+            story_id=story_id,
+            user_id=curr_user_id
+        )
+      db.session.add(comment)
+      db.session.commit()
+      return comment.to_dict(int(current_user.is_authenticated) and current_user.id)
+    else:
+      return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+  else:
+    return jsonify({'message': 'Story could not be found'}), 404
+
+
+
+#############search????????###############
+# @product_routes.route("/search/<keyword>")
+# def search_product(keyword):
+#   products = Product.query.filter(Product.name.like(f"%{keyword}%")).all()
+#   return {
+#     "Products": [
+#       product.to_dict_search() for product in products
+#     ]
+#   }, 200
