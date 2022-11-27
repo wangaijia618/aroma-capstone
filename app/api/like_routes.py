@@ -11,7 +11,7 @@ like_routes = Blueprint('likes', __name__)
 @login_required
 def like_a_story(story_Id):
     cur_user = current_user.id
-    story = bool(Story.query.filter_by(id=story_Id).first())
+    story = bool(Story.query.filter_by(id=story_Id).first())  #boolean
 
     # check if like already exists
     like = Like.query.filter(Like.user_id == cur_user,
