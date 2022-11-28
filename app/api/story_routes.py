@@ -48,7 +48,8 @@ def new_story():
         db.session.add(data)
         db.session.commit()
         return data.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': 'this is an error test'}, 401
 
 
 @story_routes.route('/<int:id>', methods=['PUT'])
