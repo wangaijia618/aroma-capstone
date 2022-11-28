@@ -8,7 +8,6 @@ import "./CreateStory.css";
 function CreateStory() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const hiddenFileInput = useRef(null);
 
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -36,17 +35,12 @@ function CreateStory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // let formData = {
-    //     title, story, img
-    // }
-    // formData.user_id = sessionUser.id
-    let formData = {
-        user_id:sessionUser.id,
-        title:title,
-        story:story,
-        img:img
+    let newStory = {
+        title,
+        story,
+        img
     }
-    let data = await dispatch(createNewStory(formData));
+    const data = await dispatch(createNewStory(newStory));
 
     if (data) {
       setErrors([data]);

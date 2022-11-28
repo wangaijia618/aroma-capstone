@@ -7,4 +7,4 @@ class StoryForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     story = TextAreaField('story', validators=[DataRequired()])
     img= StringField('img')
-    submit = SubmitField('publish')
+

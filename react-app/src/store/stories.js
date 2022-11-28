@@ -104,18 +104,18 @@ export const getSingleStory = (storyId) => async (dispatch) => {
 };
 
 //CREATE STORY
-export const createNewStory = (stories) => async (dispatch) => {
-  const { title, story, img } = stories;
-console.log("#####################", title)
-  const res = await fetch("/api/stories/", {
+export const createNewStory = (story) => async (dispatch) => {
+//   const { title, story, img } = stories;
+// console.log("#####################", title)
+// console.log("#####################", story)
+// console.log("#####################", img)
+  const res = await fetch("/api/stories/new-story", {
     method: "POST",
     body: JSON.stringify({
-      title,
-      story,
-      img
+     story
     }),
   });
- console.log("###################", res)
+ console.log("###################RES", res)
   if (res.ok) {
     const newStory = await res.json();
     dispatch(addStory(newStory));

@@ -32,19 +32,20 @@ def get_my_stories():
 
 
 
-@story_routes.route(("/"), methods=['POST'])
+@story_routes.route(("/new-story"), methods=['POST'])
 @login_required
 def new_story():
     form = StoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print("CCCCCCCCCCCCCCCurrent", current_user.id)
     if form.validate_on_submit():
         data = Story(
             user_id = current_user.id,
-            title=form.data['title'],
-            story=form.data['story'],
-            img=form.data['img']
+            title=form.data["title"],
+            story=form.data["story"],
+            img=form.data["img"]
         )
+        print("!!!!!!!!!!!!!!!storydata", data)
         db.session.add(data)
         db.session.commit()
         return data.to_dict()
