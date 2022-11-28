@@ -53,7 +53,7 @@ const unFollowUser = (userId) => {
 //Thunks
 //GET CUR FOLLOWS
 export const getCurUserFollows = (userId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/profiles/${userId}/follows`);
+    const res = await fetch(`/api/profiles/${userId}/follows`);
 
     if(res.ok){
         const follows = await res.json();
@@ -63,7 +63,7 @@ export const getCurUserFollows = (userId) => async(dispatch) => {
 
 //GET CUR FOLLOWERS
 export const getCurUserFollowers = (userId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/profiles/${userId}/followers`);
+    const res = await fetch(`/api/profiles/${userId}/followers`);
 
     if(res.ok){
         const followers = await res.json();
@@ -76,7 +76,7 @@ export const getCurUserFollowers = (userId) => async(dispatch) => {
 
 //GET FOLLOWS
 export const getUserFollows = (userId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/profiles/${userId}/follows`);
+    const res = await fetch(`/api/profiles/${userId}/follows`);
 
     if(res.ok){
         const follows = await res.json();
@@ -86,7 +86,7 @@ export const getUserFollows = (userId) => async(dispatch) => {
 
 //GET FOLLOWERS
 export const getUserFollowers = (userId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/profiles/${userId}/followers`);
+    const res = await fetch(`/api/profiles/${userId}/followers`);
 
     if(res.ok){
         const followers = await res.json();
@@ -96,7 +96,7 @@ export const getUserFollowers = (userId) => async(dispatch) => {
 
 //FOLLOW User
 export const followAUser = (userId) => async(dispatch) => {
-    const res  = await csrfFetch(`/api/profiles/${userId}/follows`, {
+    const res  = await fetch(`/api/profiles/${userId}/follows`, {
         method: 'POST'
     });
     if(res.ok){
@@ -108,7 +108,7 @@ export const followAUser = (userId) => async(dispatch) => {
 
 //UNFOLLOW user
 export const unFollowAUser = (userId) => async(dispatch) => {
-    const res  = await csrfFetch(`/api/profiles/${userId}/unfollows`, {
+    const res  = await fetch(`/api/profiles/${userId}/unfollows`, {
         method: 'DELETE'
     });
 

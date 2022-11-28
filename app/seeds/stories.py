@@ -8,33 +8,33 @@ def seed_stories():
             story='AUTHENTICATION REQUIRED: True',
             img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
          Story(
-            user_id=1,
+            user_id=2,
             title='bbbbbb',
             story='AUTHENTICATION REQUIRED: True',
             img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
 
          Story(
-            user_id=1,
+            user_id=3,
             title='ccccccccc',
             story='AUTHENTICATION REQUIRED: True',
             img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
 
          Story(
-            user_id=1,
+            user_id=4,
             title='ddddddddddd',
             story='AUTHENTICATION REQUIRED: True',
             img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
 
 
          Story(
-            user_id=1,
+            user_id=5,
             title='eeeeeeeeeee',
             story='AUTHENTICATION REQUIRED: True',
             img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg'),
 
       #6
          Story(
-            user_id=1,
+            user_id=5,
             title='fffffffffffff',
             story='AUTHENTICATION REQUIRED: True',
             img='https://i.etsystatic.com/11355547/r/il/a5a52a/4028770018/il_794xN.4028770018_a7fk.jpg')

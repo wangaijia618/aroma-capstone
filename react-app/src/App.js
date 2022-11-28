@@ -8,6 +8,11 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import HomePage from "./components/HomePage";
+// import NotFound from "./components/NotFound";
+import FullStoryPage from "./components/StoryDetail/FullStoryPage"
+import CreateStory from "./components/CreateStory"
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,6 +33,15 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <HomePage />
+        </Route>
+        <ProtectedRoute path="/new-story" exact={true}>
+          <CreateStory />
+        </ProtectedRoute>
+        <Route path="/stories/:storyId" exact={true}>
+            <FullStoryPage />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -43,6 +57,9 @@ function App() {
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
+        {/* <Route>
+          <NotFound />
+        </Route> */}
       </Switch>
     </BrowserRouter>
   );

@@ -62,7 +62,7 @@ const deleteStory = (storyId) => {
 
 //GET ALL STORIES
 export const getAllStories = () => async (dispatch) => {
-  const res = await csrfFetch("/api/stories/");
+  const res = await fetch("/api/stories/");
 
   if (res.ok) {
     const data = await res.json();
@@ -73,7 +73,7 @@ export const getAllStories = () => async (dispatch) => {
 
 //GET User Stories
 export const userStories = (userId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/profiles/${userId}/`);
+  const res = await fetch(`/api/profiles/${userId}/`);
 
   if (res.ok) {
     const data = await res.json();
@@ -83,7 +83,7 @@ export const userStories = (userId) => async (dispatch) => {
 
 //GET FEED
 export const getProfileFeed = () => async (dispatch) => {
-  const res = await csrfFetch("/api/feed/myfollows");
+  const res = await fetch("/api/feed/myfollows");
 
   if (res.ok) {
     const data = await res.json();
@@ -93,7 +93,7 @@ export const getProfileFeed = () => async (dispatch) => {
 
 //Get SINGLE STORY
 export const getSingleStory = (storyId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/stories/${storyId}`);
+  const res = await fetch(`/api/stories/${storyId}`);
 
   if (res.ok) {
     const story = await res.json();
@@ -104,15 +104,13 @@ export const getSingleStory = (storyId) => async (dispatch) => {
 };
 
 //CREATE STORY
-export const createNewStory = (story) => async (dispatch) => {
-  const { title, content, image_url } = story;
+export const createNewStory = (formData) => async (dispatch) => {
+//   const { title, story, img } = story;
 
-  const res = await csrfFetch("/api/stories/", {
+  const res = await fetch("/api/stories/new-story", {
     method: "POST",
     body: JSON.stringify({
-      title,
-      content,
-      image_url,
+      formData
     }),
   });
 
@@ -125,7 +123,7 @@ export const createNewStory = (story) => async (dispatch) => {
 
 //UPDATE STORY
 export const editStory = (story, id) => async (dispatch) => {
-  const res = await csrfFetch(`/api/stories/${id}`, {
+  const res = await fetch(`/api/stories/${id}`, {
     method: "PUT",
     body: JSON.stringify(story),
   });
@@ -140,7 +138,7 @@ export const editStory = (story, id) => async (dispatch) => {
 
 //DELETE STORY
 export const deleteAStory = (storyId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/stories/${storyId}`, {
+  const res = await fetch(`/api/stories/${storyId}`, {
     method: "DELETE",
   });
   const response = await res.json();
@@ -158,7 +156,7 @@ export default function storyReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_STORIES:
       action.stories.forEach((story) => newState[story.id] = story);
-      // newState = [...action.stories];
+      console.log('@@@@@@@@@@@@@@@@@',action.stories)
       return newState;
     case GET_USER_STORIES:
       let userStories = {};

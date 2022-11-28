@@ -1,9 +1,19 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
+import commentsReducer from './comments';
+import followsReducer from './follows';
+// import profilesReducer from './profiles';
+import storyReducer from './stories';
+import likesReducer from './likes'
 
 const rootReducer = combineReducers({
   session,
+  storyState: storyReducer,
+  commentState: commentsReducer,
+  followsState: followsReducer,
+  // profileState: profilesReducer,
+  likeState: likesReducer,
 });
 
 

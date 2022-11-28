@@ -12,8 +12,8 @@ story_routes = Blueprint('stories', __name__)
 @story_routes.route("/")
 def get_all_stories():
     stories = Story.query.all()
-    return {'stories': [story.preview_to_dict() for story in stories]}
-
+    return {'Stories': [story.preview_to_dict() for story in stories]}
+    print('!!!!!!!!!!!!!!', stories)
 #get a single story
 @story_routes.route("/<int:id>")
 def get_one_story(id):
@@ -75,7 +75,7 @@ def edit_story(id):
 def delete_story(id):
     story = Story.query.get(id)
 
-    if story.user_id is not current_user.id:
+    if story.user_id != current_user.id:
         return {
         "errors": "Unauthorized! You are not the owner of this story!"
         }, 403

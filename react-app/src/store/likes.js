@@ -26,7 +26,7 @@ const deleteLikeComment = (res) => ({
 
 //Like A STORY
 export const likeStory = (storyId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/stories/${storyId}/likes`, {
+  const res = await fetch(`/api/stories/${storyId}/likes`, {
     method: "POST",
   });
 
@@ -38,7 +38,7 @@ export const likeStory = (storyId) => async (dispatch) => {
 
 //Unlike A STORY
 export const unlikeStory = (storyId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/stories/${storyId}/likes`, {
+  const res = await fetch(`/api/stories/${storyId}/likes`, {
     method: "DELETE",
   });
 
@@ -51,7 +51,7 @@ export const unlikeStory = (storyId) => async (dispatch) => {
 
 //LIKE Comment
 export const likeComment = (commentId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/comments/${commentId}/likes`, {
+    const res = await fetch(`/api/comments/${commentId}/likes`, {
         method: 'POST',
     });
 
@@ -65,7 +65,7 @@ export const likeComment = (commentId) => async(dispatch) => {
 
 //UNLIKE COMMENT
 export const unlikeComment = (commentId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/comments/${commentId}/likes`, {
+    const res = await fetch(`/api/comments/${commentId}/likes`, {
         method: 'DELETE',
     });
     if(res.ok){
@@ -78,7 +78,7 @@ export const unlikeComment = (commentId) => async(dispatch) => {
 
 
 // export const getStoryLikes = (storyId) => async(dispatch) => {
-//   const res =  await csrfFetch('/api/')
+//   const res =  await fetch('/api/')
 // }
 
 
@@ -105,8 +105,8 @@ export default function likesReducer(state = initialState, action) {
       return state;
   }
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
+// Footer
+// © 2022 GitHub, Inc.
+// Footer navigation
+// Terms
+// Privacy
