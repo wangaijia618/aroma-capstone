@@ -36,16 +36,16 @@ function CreateStory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("user_id", sessionUser.id);
-    formData.append("title", title);
-    formData.append("story", story);
-    formData.append("img", img);
-
-    // aws uploads can be a bit slow—displaying
-    // some sort of loading message is a good idea
-    setImgLoading(true);
-
+    // let formData = {
+    //     title, story, img
+    // }
+    // formData.user_id = sessionUser.id
+    let formData = {
+        user_id:sessionUser.id,
+        title:title,
+        story:story,
+        img:img
+    }
     let data = await dispatch(createNewStory(formData));
 
     if (data) {
@@ -57,15 +57,14 @@ function CreateStory() {
     }
   };
 
-  const updateImage = (e) => {
-    // const file = e.target.files[0];
-    setImg(e.target.value);
-  };
+//   const updateImage = (e) => {
+//     const file = e.target.files[0];
+//     setImg(e.target.value);
+//   };
 
-  const handleClick = (e) => {
-    hiddenFileInput.current?.click();
-  };
-
+  if(!sessionUser){
+    return null
+}
   return (
     <div className="story-form-container">
       <form onSubmit={handleSubmit}>
@@ -97,9 +96,9 @@ function CreateStory() {
                 name="img"
                 className="img-inputs"
                 type="text"
-                onChange={updateImage}
                 placeholder={"upload image"}
                 value={img}
+                onChange={(e) => setImg(e.target.value)}
                 required
               ></input>
             </div>

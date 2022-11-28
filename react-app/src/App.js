@@ -36,9 +36,9 @@ function App() {
         <Route path="/" exact={true}>
           <HomePage />
         </Route>
-        <ProtectedRoute path="/new-story" exact={true}>
+        <Route path="/new-story" exact={true}>
           <CreateStory />
-        </ProtectedRoute>
+        </Route>
         <Route path="/stories/:storyId" exact={true}>
             <FullStoryPage />
         </Route>
@@ -48,12 +48,12 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <Route path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </Route>
+        <Route path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </Route>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>

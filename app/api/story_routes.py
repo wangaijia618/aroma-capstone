@@ -24,6 +24,7 @@ def get_one_story(id):
 
 
 @story_routes.route("/current")
+@login_required
 def get_my_stories():
     filtered_stories = Story.query.filter(Story.user_id == current_user.id).all
     if filtered_stories:
@@ -31,7 +32,7 @@ def get_my_stories():
 
 
 
-@story_routes.route('/new-story', methods=['POST'])
+@story_routes.route(("/"), methods=['POST'])
 @login_required
 def new_story():
     form = StoryForm()
@@ -42,8 +43,7 @@ def new_story():
             user_id = current_user.id,
             title=form.data['title'],
             story=form.data['story'],
-            img=form.data['img'],
-            created_at=datetime.now()
+            img=form.data['img']
         )
         db.session.add(data)
         db.session.commit()
@@ -85,7 +85,7 @@ def delete_story(id):
 
     db.session.delete(story)
     db.session.commit()
-    return "Story was successfully deleted."
+    # return "Story was successfully deleted."
 
 
 @story_routes.route("/<int:id>/comments")

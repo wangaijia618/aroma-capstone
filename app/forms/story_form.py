@@ -4,10 +4,7 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 from sqlalchemy import DateTime
 
 class StoryForm(FlaskForm):
-    user_id = IntegerField('User ID')
     title = StringField('title', validators=[DataRequired()])
     story = TextAreaField('story', validators=[DataRequired()])
     img= StringField('img')
-    created_at = DateTime('Created at')
-    updated_at = DateTime('Updated at')
     submit = SubmitField('publish')

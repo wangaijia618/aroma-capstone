@@ -32,7 +32,7 @@ function UserStoryFeed({ user }) {
               <div key={i}>
                 <NavLink
                   key={i}
-                  to={`/stories/${story.id}`}
+                  to={`/stories/${Number(story.id)}`}
                   style={{ textDecoration: "none" }}
                 >
                   <StoryPreview story={story} user={user} />
