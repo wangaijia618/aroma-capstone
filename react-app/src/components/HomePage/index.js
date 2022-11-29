@@ -13,7 +13,8 @@ const HomePage = () => {
             {sessionUser &&
             (
             // <UserStoryFeed user={sessionUser}/>
-            <FeedSwitch user={sessionUser}/>
+            // <FeedSwitch user={sessionUser}/>
+            <AllStoriesFeed />
             )}
             {!sessionUser &&
             (

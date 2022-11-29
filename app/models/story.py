@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
+from sqlalchemy.sql import func
 
 class Story(db.Model):
     __tablename__ = "stories"
@@ -15,6 +16,8 @@ class Story(db.Model):
     img = db.Column(db.String(1000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
+    # created_at = db.Column(db.DateTime(timezone=True), server_default=func.current_timestamp())
+    # updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())
 
 
 #relationship
