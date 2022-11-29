@@ -26,9 +26,9 @@ def get_one_story(id):
 @story_routes.route("/current")
 @login_required
 def get_my_stories():
-    filtered_stories = Story.query.filter(Story.user_id == current_user.id).all
+    filtered_stories = Story.query.filter(Story.user_id == current_user.id).all()
     if filtered_stories:
-        return {'Stories': [story.full_story_to_dict() for story in filtered_stories]}
+        return {'Stories': [story.preview_to_dict() for story in filtered_stories]}
 
 
 
@@ -90,7 +90,7 @@ def delete_story(id):
 
     db.session.delete(story)
     db.session.commit()
-    # return "Story was successfully deleted."
+    return {'messages': "Story was successfully deleted."}
 
 
 @story_routes.route("/<int:id>/comments")

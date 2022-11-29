@@ -12,7 +12,7 @@ import HomePage from "./components/HomePage";
 // import NotFound from "./components/NotFound";
 import FullStoryPage from "./components/StoryDetail/FullStoryPage"
 import CreateStory from "./components/CreateStory"
-
+import Profile from "./components/Profile"
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +38,9 @@ function App() {
         </Route>
         <Route path="/new-story" exact={true}>
           <CreateStory />
+        </Route>
+        <Route path="/myprofile" exact={true}>
+          <Profile />
         </Route>
         <Route path="/stories/:storyId" exact={true}>
             <FullStoryPage />

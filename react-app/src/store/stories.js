@@ -72,14 +72,22 @@ export const getAllStories = () => async (dispatch) => {
 };
 
 //GET User Stories
-export const userStories = (userId) => async (dispatch) => {
-  const res = await fetch(`/api/profiles/${userId}/`);
+// export const userStories = (userId) => async (dispatch) => {
+//   const res = await fetch(`/api/profiles/${userId}/`);
 
-  if (res.ok) {
-    const data = await res.json();
-    dispatch(getUserStories(data.Stories));
+//   if (res.ok) {
+//     const data = await res.json();
+//     dispatch(getUserStories(data.Stories));
+//   }
+// };
+//GET CURRENT user stories
+export const getMyStories = () => async (dispatch) => {
+  const response = await fetch("/api/stories/current")
+  if (response.ok) {
+      const stories = await response.json()
+      dispatch(getUserStories(stories))
   }
-};
+}
 
 //GET FEED
 export const getProfileFeed = () => async (dispatch) => {
@@ -146,11 +154,10 @@ export const deleteAStory = (storyId) => async (dispatch) => {
   const res = await fetch(`/api/stories/${storyId}`, {
     method: "DELETE",
   });
-  const response = await res.json();
-  if (res.status === 200) {
+  if (res.ok) {
     dispatch(deleteStory(storyId));
   }
-  return response;
+
 };
 
 const initialState = {};
@@ -164,11 +171,9 @@ export default function storyReducer(state = initialState, action) {
       console.log('@@@@@@@@@@@@@@@@@',action.stories)
       return newState;
     case GET_USER_STORIES:
-      let userStories = {};
-      action.stories.forEach((story) => userStories[story.id] = story);
-      // let userStories = [];
-      // userStories = [...action.stories];
-      return userStories;
+      newState = {};
+      action.stories.Stories.forEach((story) => newState[story.id] = story);
+      return newState;
     case GET_FEED:
       let feed = {};
       action.stories.forEach((story) => feed[story.id] = story);
