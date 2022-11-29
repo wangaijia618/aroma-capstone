@@ -36,19 +36,22 @@ function CreateStory() {
     e.preventDefault();
 
     let newStory = {
+        user_id: Number(sessionUser.id),
         title,
         story,
         img
     }
+    console.log("NNNNNNNNNNNNew Story", newStory)
     const data = await dispatch(createNewStory(newStory));
 
     if (data) {
-      setErrors([data]);
+      setErrors(Object.keys(data));
     } else {
-      // received a valid request
+
       setErrors([]);
       return history.push(`/`);
     }
+    return history.push('/')
   };
 
 //   const updateImage = (e) => {

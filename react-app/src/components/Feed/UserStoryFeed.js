@@ -9,12 +9,12 @@ function UserStoryFeed({ user }) {
   const dispatch = useDispatch();
 
   const stories = Object.values(useSelector((state) => state.storyState));
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      // await dispatch(getProfileFeed());
+      await dispatch(getProfileFeed());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -32,7 +32,7 @@ function UserStoryFeed({ user }) {
               <div key={i}>
                 <NavLink
                   key={i}
-                  to={`/stories/${Number(story.id)}`}
+                  to={`/stories/${story.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <StoryPreview story={story} user={user} />

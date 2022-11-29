@@ -4,7 +4,7 @@ from datetime import datetime
 from .auth_routes import validation_errors_to_error_messages
 from app.models import db, Story, Comment, User
 from app.forms import StoryForm, CommentForm
-
+import json
 story_routes = Blueprint('stories', __name__)
 
 
@@ -35,12 +35,15 @@ def get_my_stories():
 @story_routes.route(("/new-story"), methods=['POST'])
 @login_required
 def new_story():
+    data = json.loads(request.data)
     form = StoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     print("CCCCCCCCCCCCCCCurrent", current_user.id)
+    print("CCCCCCCCCCCCCCCurrent", type(current_user.id))
+    print("FFFFFFFFFFFFFFFForm", data)
     if form.validate_on_submit():
         data = Story(
-            user_id = current_user.id,
+            user_id=current_user.id,
             title=form.data["title"],
             story=form.data["story"],
             img=form.data["img"]
@@ -61,8 +64,8 @@ def edit_story(id):
     if story is None:
       return {"errors" : "Story couldn't be found"}, 404
     if form.validate_on_submit():
-        story = Story.query.get(id)
-        story.title = form.data['title']
+        story=Story.query.get(id)
+        story.title=form.data['title']
         story.story=form.data['story']
         story.img=form.data['img']
         story.updated_at=datetime.now()

@@ -15,7 +15,7 @@ function FullStoryPage() {
 
   useEffect(() => {
     (async() => {
-      const res = await dispatch(getSingleStory(storyId));
+      const res = await dispatch(getSingleStory(+storyId));
       if (res.status === 404){
         history.push('/404')
       }
