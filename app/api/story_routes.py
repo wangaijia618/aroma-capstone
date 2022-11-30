@@ -99,7 +99,7 @@ def get_story_comments(id):
   story = Story.query.get(id)
 
   if story is None:
-    return {"errors": "Product couldn't be found"}, 404
+    return {"errors": "Story couldn't be found"}, 404
 
   filtered_comments = Comment.query.filter(Comment.story_id == id).all()
 
@@ -112,24 +112,31 @@ def get_story_comments(id):
 @story_routes.route('/<int:story_id>/comments', methods=['POST'])
 @login_required
 def create_story_comment(story_id):
-  curr_user_id = int(current_user.is_authenticated) and current_user.id
+  data = json.loads(request.data)
   story = Story.query.get(story_id)
   form = CommentForm()
-#   print(form.data)
-  if story:
-    if form.validate_on_submit:
+  form['csrf_token'].data = request.cookies['csrf_token']
+  print("FFFFFFFFFFFFFFFFFForm",form)
+  print("FFFFFFFFFFFFFFFFFForm",form.data)
+
+  print("FFFFFFFFFFFFFFFREQUESTDATA", data)
+  if not story:
+    return {'message': 'Story could not be found'}, 404
+  if form.validate_on_submit:
       comment = Comment(
-            content=form.data['content'],
+            content=form.data["content"],
             story_id=story_id,
-            user_id=curr_user_id
+            user_id=current_user.id
         )
+      print("AAAAAAAAAAAAAAcontent",form.data['content'])
+      print("!!!!!!!!!!!!!!!storydata", comment)
       db.session.add(comment)
       db.session.commit()
-      return comment.to_dict(int(current_user.is_authenticated) and current_user.id)
-    else:
-      return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+      return comment.to_dict()
   else:
-    return jsonify({'message': 'Story could not be found'}), 404
+      return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
 
 
 

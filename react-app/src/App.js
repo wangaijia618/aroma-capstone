@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from "./components/HomePage";
-// import NotFound from "./components/NotFound";
+import NotFound from "./components/NotFound";
 import FullStoryPage from "./components/StoryDetail/FullStoryPage"
 import CreateStory from "./components/CreateStory"
 import Profile from "./components/Profile"
@@ -36,15 +36,17 @@ function App() {
         <Route path="/" exact={true}>
           <HomePage />
         </Route>
+        <Route path="/stories/:storyId" exact={true}>
+            <FullStoryPage />
+        </Route>
+
         <Route path="/new-story" exact={true}>
           <CreateStory />
         </Route>
         <Route path="/myprofile" exact={true}>
           <Profile />
         </Route>
-        <Route path="/stories/:storyId" exact={true}>
-            <FullStoryPage />
-        </Route>
+
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -57,12 +59,9 @@ function App() {
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
-        <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </Route>
-        {/* <Route>
+        <Route>
           <NotFound />
-        </Route> */}
+        </Route>
       </Switch>
     </BrowserRouter>
   );

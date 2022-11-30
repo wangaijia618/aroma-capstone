@@ -5,31 +5,38 @@ import { getSingleStory } from "../../store/stories";
 import OneStory from "./OneStory";
 import AuthorSideBar from "./AuthorSideBar";
 import "./index.css";
-
+import LoadStoryComments from "../comments/LoadStoryComments";
 
 function FullStoryPage() {
   const { storyId } = useParams();
-  const story = useSelector((state) => state.storyState[storyId]);
+  // const storyId = parseInt(Id)
+  const story = useSelector((state) => state.storyState[parseInt(storyId)]);
   const dispatch = useDispatch();
   const history = useHistory();
+  const commentsArr = Object.values(useSelector(state =>state.commentState.comments))
+  console.log("heyheyheyheyheyhey", storyId)
+  console.log("heyheyheyheyheyhey", typeof(storyId))
+  console.log("heyheyheyheyheystory", story)
+  useEffect(async() => {
+    dispatch(getSingleStory(parseInt(storyId)));
 
-  useEffect(() => {
-    (async() => {
-      const res = await dispatch(getSingleStory(+storyId));
-      if (res.status === 404){
-        history.push('/404')
-      }
-    })();
-  }, [dispatch]);
+  }, [dispatch, storyId, commentsArr.length]);
 
   return (
     <div className="full-page-story-div">
       <div className="full-page-story-details-div">
         <OneStory story={story} storyId={storyId} />
       </div>
+
       <div className="author-side-div">
           <AuthorSideBar Author={story?.Author}/>
       </div>
+     <div className="story-review-section">
+        <div className="one-story-comments-container">
+                <LoadStoryComments storyId={storyId}/>
+            </div>
+            </div>
+
     </div>
   );
 }

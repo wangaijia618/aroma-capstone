@@ -98,14 +98,18 @@ export const getComment = (commentId) => async(dispatch) => {
     //CREATE Comment
 export const createComment = (comment, storyId) => async(dispatch) =>  {
     const {content} =  comment;
-
+    console.log("#####################", content)
+    console.log("#####################", storyId)
     const res = await fetch(`/api/stories/${storyId}/comments`, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
         body: JSON.stringify({
             content
         })
     });
-
+console.log("RRRRRRRRRRRRRRRRes", res)
     if(res.ok){
         const newComment = await res.json();
         dispatch(addComment(newComment));
@@ -170,7 +174,8 @@ export default function commentsReducer(state = initialState, action){
     switch(action.type){
         case  GET_ALL_COMMENTS:
             newState.comments = {}
-            action.comments.forEach((comment) => newState.comments[comment.id] = comment);
+            action.comments.Comments.forEach((comment) => newState.comments[comment.id] = comment);
+            newState.replies = {}
             return newState
         case  GET_ALL_REPLIES:
             newState.replies[action.parentId] = action.replies

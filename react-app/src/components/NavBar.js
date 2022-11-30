@@ -34,7 +34,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/myprofile' exact={true} activeClassName='active'>
-            My Profile
+            My Stories
           </NavLink>
         </li>
         <li>

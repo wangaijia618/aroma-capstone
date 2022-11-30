@@ -1,12 +1,14 @@
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteAStory } from "../../store/stories"
-// import EditProduct from "../EditProduct"
-// import noimage from "./noimage.jpg"
+import EditStory from "../EditStory"
+import noimage from "./noimage.jpg"
 import "./Profile.css"
 import { useState } from "react"
-// import { Modal } from "../../context/Modal"
+import { Modal } from "../../context/Modal"
 // import { FaStar } from "react-icons/fa"
+import StoryPreview from "../Feed/StoryPreview";
+
 
 const Mystories = ({ story }) => {
   const dispatch = useDispatch()
@@ -38,10 +40,13 @@ const Mystories = ({ story }) => {
 
 
       <div className="myproducts-product-image-container">
-        <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${story.id}`}>
+      <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${story.id}`}>
+        <StoryPreview story={story}/>
+        </Link>
+        {/* <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${story.id}`}>
           {story?.img?
             (<img src={story?.img} />)
-            :(<img alt="noimage" />)
+            :(<img src={noimage} alt="noimage" />)
           }
         </Link>
 
@@ -49,51 +54,50 @@ const Mystories = ({ story }) => {
 
       <div className="myproducts-product-info">
         <div>
-          <div className="myproducts-product-category">
-            {story?.Author?.username}
-          </div>
-          <div className="myproducts-product-name">
-            {/* {product.name} */}
+          <div className="myproducts-product-title">
             {story?.title}
           </div>
-        </div>
-
-        <div>
-          {/* <div className="myproducts-product-price">
-            ${parseFloat(product.price).toFixed(2)}
-          </div> */}
-          <div className="myproducts-product-stock">
-            {story?.story} left in stock
+          <div className="myproducts-product-story">
+            {story?.story}
           </div>
-        </div>
+        </div> */}
+
+        {/* <div>
+          <div className="myproducts-product-price">
+            ${parseFloat(product.price).toFixed(2)}
+          </div>
+          <div className="myproducts-product-stock">
+            {story?.story}
+          </div>
+        </div> */}
 
       </div>
 
       <div className="myproduct-buttons-container">
-        {/* {seller && (
-          <> */}
-          {/* <Link to={`/edit-product/${product.id}`}>
+        {seller && (
+          <>
+          {/* <Link to={`/stories/${story.id}`}>
             <button className="myproduct-buttons">
               Edit
             </button>
           </Link> */}
-          {/* <button className="myproduct-buttons" onClick={() => editProductHandleClick(product?.id)}> Edit </button>
+           <button className="myproduct-buttons" onClick={() => editProductHandleClick(story?.id)}> Edit </button>
           <div>
             {showEditForm && (
               <Modal onClose={() => setShowEditForm(false)}>
-                <EditProduct productId={productId} setShowEditForm={setShowEditForm} />
+                <EditStory storyId={storyId} setShowEditForm={setShowEditForm} />
               </Modal>
-            )} */}
+            )}
           </div>
           <button
           className="myproduct-buttons"
           onClick={deleteProductHandleClick}>
             Delete
           </button>
-          {/* </>
-        )} */}
+           </>
+        )}
       </div>
-    // </div>
+     </div>
   )
 }
 

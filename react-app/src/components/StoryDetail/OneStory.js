@@ -5,11 +5,15 @@ import { useHistory, NavLink } from "react-router-dom";
 // import LikeStory from "../util/LikeButton/LikeStory/index"
 // import Ellipse from "../util/EditEllipses/index";
 // import CommentsButton from "../comments/CommentsButton";
+import LoadStoryComments from "../comments/LoadStoryComments";
+import "./index.css"
+import "../comments/Comments.css"
+import CreateCommentModal from "../comments/CreateCommentModal"
 
 function OneStory({ story, storyId }) {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
-
+  const [showNewReviewModal, setShowNewReviewModal] = useState(false)
   let EditedDate;
   let CreatedDate;
   let StoryImg;
@@ -20,6 +24,8 @@ function OneStory({ story, storyId }) {
 //       editStoryBtn = <Ellipse story={story} />;
 //     }
 //   }
+  let writer = false
+  if (sessionUser?.id == story?.user_id) writer = true
 
   if (story?.updated_at !== story?.created_at) {
     const editedDate = new Date(story?.updated_at);
@@ -50,11 +56,12 @@ function OneStory({ story, storyId }) {
     );
   }
 
+
   return (
     <div className="full-story-container">
       <div className="full-story-heading-container">
         <div className="full-story-author-container">
-        <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}>
+        {/* <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}> */}
           <div
             className="full-story-profile-image-container"
             style={{
@@ -65,13 +72,13 @@ function OneStory({ story, storyId }) {
               }')`,
             }}
           ></div>
-           </NavLink>
+           {/* </NavLink> */}
           <div className="full-story-next-to-profile-pic">
-          <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}>
+          {/* <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}> */}
             <div className="full-story-author-name">
               {`${story?.Author?.username}`}
             </div>
-            </NavLink>
+            {/* </NavLink> */}
             <div className="full-story-dates">
               {CreatedDate}
               {EditedDate}
@@ -95,12 +102,36 @@ function OneStory({ story, storyId }) {
         <div className="likes-count">
           {/* <LikeStory story={story} storyId={storyId} /> */}
         </div>
-        <span className="reactions">{story?.num_likes}</span>
+        {/* <span className="reactions">{story?.num_likes} likes</span> */}
         {/* <div className="comment-count"> */}
           {/* <CommentsButton id={storyId} /> */}
         {/* </div> */}
-        {/* <span className="reactions">{story?.num_comments}</span> */}
-      </div>
+        <span className="reactions"><i className="fa-regular fa-comment"></i>
+          &nbsp; {story?.num_comments}</span>
+</div>
+<div>
+                {
+                sessionUser &&
+                !writer &&
+                // !story.comment.includes(sessionUser.id) &&
+                // (<div>
+                //     <button
+                //         className="create-new-review-button"
+                //         onClick={()=>history.push(`/products/${productId}/new-review`)}
+                //     >
+                //         Create a new review
+                //         {/* <CreateReviewForm productId={productId}/> */}
+                //     </button>
+                // </div>)
+                <CreateCommentModal
+                    storyId={storyId}
+                    showNewReviewModal={showNewReviewModal}
+                    setShowNewReviewModal={setShowNewReviewModal}
+                />
+                }
+            </div>
+
+
     </div>
   );
 }

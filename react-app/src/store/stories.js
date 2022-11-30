@@ -62,7 +62,7 @@ const deleteStory = (storyId) => {
 
 //GET ALL STORIES
 export const getAllStories = () => async (dispatch) => {
-  const res = await fetch("/api/stories/");
+  const res = await fetch("/api/stories");
 
   if (res.ok) {
     const data = await res.json();
@@ -106,9 +106,9 @@ export const getSingleStory = (storyId) => async (dispatch) => {
   if (res.ok) {
     const story = await res.json();
     dispatch(getStoryDetails(story));
-    return res;
+    return story;
   }
-  return res;
+
 };
 
 //CREATE STORY
@@ -135,17 +135,22 @@ console.log("#####################", storydata.img)
 };
 
 //UPDATE STORY
-export const editStory = (story, id) => async (dispatch) => {
+export const editStory = (storydata, id) => async (dispatch) => {
+  const { title, story, img } = storydata;
   const res = await fetch(`/api/stories/${id}`, {
     method: "PUT",
-    body: JSON.stringify(story),
-  });
-
-  if (res.ok) {
-    const updatedStory = await res.json();
-    dispatch(updateStory(updatedStory));
-    return res;
-  }
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title, story, img
+    }),
+  })
+    if (res.ok) {
+      const updatedStory = await res.json();
+      dispatch(updateStory(updatedStory));
+      return res;
+    }
 };
 
 
@@ -181,6 +186,7 @@ export default function storyReducer(state = initialState, action) {
       // feed = [...action.stories];
       return feed;
     case GET_STORY_DETAILS:
+      newState = {}
       newState[action.story.id] = action.story;
       return newState;
     case CREATE_STORY:

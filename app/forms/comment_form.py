@@ -5,3 +5,4 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 
 class CommentForm(FlaskForm):
   content = StringField('content', validators=[DataRequired()])
+
