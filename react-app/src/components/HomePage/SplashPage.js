@@ -1,5 +1,5 @@
 import React from "react"
-// import LoginPopUpModal from "../auth/LoginPopUp";
+import LoginPopUpModal from "../auth/LoginPopUp";
 import "./HomePage.css"
 import flower2 from "../../images/flower2.gif"
 
@@ -18,7 +18,7 @@ const SplashPage = () => {
             <h2>from writeres on any topic.</h2>
           </div>
 
-          {/* <LoginPopUpModal location='start-reading' /> */}
+          <LoginPopUpModal location='start-reading' />
         </div>
         <div className="medium-img">
 

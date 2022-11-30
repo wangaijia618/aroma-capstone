@@ -102,11 +102,13 @@ export const getProfileFeed = () => async (dispatch) => {
 //Get SINGLE STORY
 export const getSingleStory = (storyId) => async (dispatch) => {
   const res = await fetch(`/api/stories/${storyId}`);
-
+  // console.log("........singlestoryRES........", res)
   if (res.ok) {
     const story = await res.json();
     dispatch(getStoryDetails(story));
-    return story;
+
+    console.log("........singlestoryRES........", story)
+    return res;
   }
 
 };
@@ -186,7 +188,7 @@ export default function storyReducer(state = initialState, action) {
       // feed = [...action.stories];
       return feed;
     case GET_STORY_DETAILS:
-      newState = {}
+      newState = {};
       newState[action.story.id] = action.story;
       return newState;
     case CREATE_STORY:

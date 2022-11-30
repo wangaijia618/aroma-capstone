@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-
+import DemoAccount from './auth/DemoAccount'
 const NavBar = () => {
   return (
     <nav>
@@ -36,6 +36,16 @@ const NavBar = () => {
           <NavLink to='/myprofile' exact={true} activeClassName='active'>
             My Stories
           </NavLink>
+        </li>
+        <li>
+          <NavLink to='/my-comments' exact={true} activeClassName='active'>
+            My Comments
+          </NavLink>
+        </li>
+        <li>
+
+            <DemoAccount/>
+
         </li>
         <li>
           <LogoutButton />

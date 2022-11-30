@@ -10,15 +10,15 @@ import LoadStoryComments from "../comments/LoadStoryComments";
 function FullStoryPage() {
   const { storyId } = useParams();
   // const storyId = parseInt(Id)
-  const story = useSelector((state) => state.storyState[parseInt(storyId)]);
+  const story = useSelector((state) => state.storyState.[+storyId])
   const dispatch = useDispatch();
   const history = useHistory();
   const commentsArr = Object.values(useSelector(state =>state.commentState.comments))
   console.log("heyheyheyheyheyhey", storyId)
-  console.log("heyheyheyheyheyhey", typeof(storyId))
+  // console.log("heyheyheyheyheyhey", typeof(storyId))
   console.log("heyheyheyheyheystory", story)
   useEffect(async() => {
-    dispatch(getSingleStory(parseInt(storyId)));
+    dispatch(getSingleStory(storyId));
 
   }, [dispatch, storyId, commentsArr.length]);
 

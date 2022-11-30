@@ -13,6 +13,7 @@ import NotFound from "./components/NotFound";
 import FullStoryPage from "./components/StoryDetail/FullStoryPage"
 import CreateStory from "./components/CreateStory"
 import Profile from "./components/Profile"
+import LoadUserComments from './components/comments/LoadUserComments';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,19 +47,19 @@ function App() {
         <Route path="/myprofile" exact={true}>
           <Profile />
         </Route>
-
+        <Route path='/my-comments' exact={true} >
+          <LoadUserComments />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/users' exact={true} >
-          <UsersList/>
-        </Route>
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
+
         <Route>
           <NotFound />
         </Route>
