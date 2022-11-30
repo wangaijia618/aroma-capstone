@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './LoginForm.css'
 
-const LoginForm = () => {
+const LoginForm = ({closeModal, switchPage}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,13 +26,25 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+//new added
+  const exitFromModal = (e) => {
+    closeModal();
+  };
 
+  const switchToSignUp = (e) => {
+    switchPage();
+  }
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <div className="login-container">
+      <button className="exit-icon" onClick={exitFromModal}>
+        <i className="fa-solid fa-xmark"></i>
+      </button>
+      <span className="login-modal-heading">Welcome back.</span>
+    <form onSubmit={onLogin} className="signin-form">
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -56,9 +69,16 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button type='submit' className="login-btn-modal">Login</button>
       </div>
     </form>
+    <div className="switch-to-signup">
+        <span>
+          No Account?
+          <button className="switch-to-signup-btn" onClick={switchToSignUp}>Create one</button>
+        </span>
+      </div>
+    </div>
   );
 };
 

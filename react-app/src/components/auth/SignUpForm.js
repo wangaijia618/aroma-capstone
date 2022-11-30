@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignUpForm.css'
 
-const SignUpForm = () => {
+const SignUpForm = ({closeModal, switchPage}) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -37,21 +38,34 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+  //new add
+  const exitFromModal = (e) => {
+    closeModal();
+  }
 
+  const switchToLogin = (e) => {
+    switchPage();
+  };
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <div className="signup-container">
+    <button className="exit-icon" onClick={exitFromModal}>
+      <i className="fa-solid fa-xmark"></i>
+    </button>
+    <span className="signup-modal-heading">Join Medium.</span>
+    <form onSubmit={onSignUp} className="signup-form">
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label className="signup-label">User Name</label>
         <input
+          className="signup-input"
           type='text'
           name='username'
           onChange={updateUsername}
@@ -59,8 +73,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label className="signup-label">Email</label>
         <input
+          className="signup-input"
           type='text'
           name='email'
           onChange={updateEmail}
@@ -68,8 +83,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label className="signup-label">Password</label>
         <input
+          className="signup-input"
           type='password'
           name='password'
           onChange={updatePassword}
@@ -77,8 +93,9 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label className="signup-label">Repeat Password</label>
         <input
+          className="signup-input"
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -86,8 +103,12 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button type='submit' className="signup-btn-modal">Sign Up</button>
     </form>
+     <div className='switch-to-login'>
+     <span>Already have an account ?<button className="switch-to-signin-btn" onClick={switchToLogin}>Sign in</button></span>
+   </div>
+   </div>
   );
 };
 
