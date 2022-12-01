@@ -20,7 +20,7 @@
 .myproduct-buttons-container {
   display: flex;
   justify-content:flex-start;
-  margin-left: 170px;
+  margin-left: 330px;
   padding: 0px 2px 2px 0px;
   margin-top: -8px;
   margin-bottom: 15px;
@@ -38,6 +38,7 @@
   color: black;
   font: bold;
   margin-right: 20px;
+
 }
 
 .myproduct-buttons:hover {
