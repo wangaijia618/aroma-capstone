@@ -63,5 +63,9 @@ def seed_stories():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_stories():
-    db.session.execute('TRUNCATE stories RESTART IDENTITY CASCADE;')
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.stories RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM stories")
+
     db.session.commit()

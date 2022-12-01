@@ -59,5 +59,9 @@ def seed_comments():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_comments():
-    db.session.execute('TRUNCATE comments RESTART IDENTITY CASCADE;')
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM comments")
+
     db.session.commit()

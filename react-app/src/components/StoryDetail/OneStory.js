@@ -7,7 +7,7 @@ import { useHistory, NavLink } from "react-router-dom";
 // import CommentsButton from "../comments/CommentsButton";
 import LoadStoryComments from "../comments/LoadStoryComments";
 import "./index.css"
-import "../comments/Comments.css"
+import "../comments/comments.css"
 import CreateCommentModal from "../comments/CreateCommentModal"
 
 

@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getUserComments, thunkRemoveReview } from "../../store/comments"
 import EditCommentForm from "./EditCommentForm"
-import "./Comments.css"
+import "./comments.css"
 
 const MyComments = ({comment, user}) => {
   const dispatch = useDispatch()

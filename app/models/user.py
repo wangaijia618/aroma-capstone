@@ -33,7 +33,7 @@ class User(db.Model, UserMixin):
         lazy="dynamic",
     )
 
-    likes = db.relationship("Like", back_populates='user', cascade='all, delete')
+    # likes = db.relationship("Like", back_populates='user', cascade='all, delete')
     comments = db.relationship("Comment", back_populates='user', cascade='all, delete')
     stories = db.relationship("Story", back_populates='user', cascade='all, delete')
 

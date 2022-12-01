@@ -2,7 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .stories import  seed_stories, undo_stories
 from .comments import  seed_comments, undo_comments
-from .likes import seed_likes, undo_likes
+# from .likes import seed_likes, undo_likes
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -25,7 +25,7 @@ def seed():
     seed_users()
     seed_stories()
     seed_comments()
-    seed_likes()
+    # seed_likes()
     # Add other seed functions here
 
 
@@ -35,5 +35,5 @@ def undo():
     undo_users()
     undo_stories()
     undo_comments()
-    undo_likes()
+    # undo_likes()
     # Add other undo functions here

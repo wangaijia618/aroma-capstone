@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAllComments } from "../../store/comments"
 // import EditReviewForm from "./EditReviewForm"
-import"./Comments.css"
+import"./comments.css"
 
   const LoadStoryComments = ({ storyId }) => {
   const dispatch = useDispatch()

@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { thunkEditReview } from "../../store/comments"
 import LoadUserComments from "./LoadUserComments"
 
-import "./Comments.css"
+import "./comments.css"
 
 const EditCommentForm = ({mycomment, showEditReview, setShowEditReview}) => {
   const dispatch = useDispatch()

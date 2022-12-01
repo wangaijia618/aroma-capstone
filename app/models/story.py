@@ -22,7 +22,7 @@ class Story(db.Model):
 
 #relationship
     user = db.relationship("User", back_populates="stories")
-    likes = db.relationship("Like", back_populates="story", cascade='all, delete')
+    # likes = db.relationship("Like", back_populates="story", cascade='all, delete')
     comments = db.relationship("Comment", back_populates="story", cascade='all, delete')
 
 
@@ -62,7 +62,7 @@ class Story(db.Model):
             'img': self.img,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'num_likes': self.num_likes(),
+            # 'num_likes': self.num_likes(),
             'num_comments': self.num_comments(),
             'Author': {
                 "id": self.user.id,
@@ -74,8 +74,8 @@ class Story(db.Model):
 
 
 
-    def num_likes(self):
-        return len(self.likes)
+    # def num_likes(self):
+    #     return len(self.likes)
 
     def num_comments(self):
         return len(self.comments)
