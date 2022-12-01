@@ -6,10 +6,11 @@ import OneStory from "./OneStory";
 import AuthorSideBar from "./AuthorSideBar";
 import "./index.css";
 import LoadStoryComments from "../comments/LoadStoryComments";
-
+import VerticalNavBar from '../navbar/VerticalNavBar/VerticalNavBar.js'
+import HorizontalNavBar from '../navbar/HorizontalNavBar/HorizontalNavBar.js'
 function FullStoryPage() {
   const { storyId } = useParams();
-  // const storyId = parseInt(Id)
+  const sessionUser = useSelector((state) => state.session.user);
   const story = useSelector((state) => state.storyState.[+storyId])
   const dispatch = useDispatch();
   const history = useHistory();
@@ -23,20 +24,22 @@ function FullStoryPage() {
   }, [dispatch, storyId, commentsArr.length]);
 
   return (
+<div>
+    { sessionUser?  <VerticalNavBar />
+     :<HorizontalNavBar/> }
+
     <div className="full-page-story-div">
+
       <div className="full-page-story-details-div">
         <OneStory story={story} storyId={storyId} />
       </div>
 
+
       <div className="author-side-div">
           <AuthorSideBar Author={story?.Author}/>
       </div>
-     <div className="story-review-section">
-        <div className="one-story-comments-container">
-                <LoadStoryComments storyId={storyId}/>
-            </div>
-            </div>
 
+      </div>
     </div>
   );
 }

@@ -10,6 +10,7 @@ import "./index.css"
 import "../comments/Comments.css"
 import CreateCommentModal from "../comments/CreateCommentModal"
 
+
 function OneStory({ story, storyId }) {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -58,6 +59,8 @@ function OneStory({ story, storyId }) {
 
 
   return (
+    <>
+    {/* {sessionUser && <VerticalNavNar/>} */}
     <div className="full-story-container">
       <div className="full-story-heading-container">
         <div className="full-story-author-container">
@@ -110,6 +113,10 @@ function OneStory({ story, storyId }) {
           &nbsp; {story?.num_comments}</span>
 </div>
 <div>
+
+
+
+
                 {
                 sessionUser &&
                 !writer &&
@@ -129,10 +136,16 @@ function OneStory({ story, storyId }) {
                     setShowNewReviewModal={setShowNewReviewModal}
                 />
                 }
+                <div className="story-review-section">
+        <div className="one-story-comments-container">
+                <LoadStoryComments storyId={storyId}/>
+            </div>
+            </div>
             </div>
 
 
     </div>
+    </>
   );
 }
 

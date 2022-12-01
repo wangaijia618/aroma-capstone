@@ -1,13 +1,14 @@
 .story-form-container {
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
 }
 
 .story-form-top-div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10px;
+    margin-bottom: 60px;
 }
 
 .story-form-top-div-left {
@@ -99,6 +100,9 @@ p.new-story-edit-story-text {
     font-style: normal;
     border: none;
 }
+.story-form-inputs:focus{
+    background-color: beige
+}
 
 #story-form-title {
     font-size: 42px;
@@ -111,6 +115,7 @@ p.new-story-edit-story-text {
 ::placeholder {
     color: #b3b3b1;
 }
+
 
 #story-form-story {
     display: flex;
@@ -144,14 +149,15 @@ button:focus {
 }
 
 .publish-btn {
-    color: #fff;
-    background: #1a8917;
+    color: white;
+    background: #0c9e7a;
     border: none;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 300;
     border-radius: 99em;
-    height: 25px;
-    line-height: 25px;
-    padding: 0 11px;
+    /* height: 25px; */
+    /* line-height: 25px; */
+    padding: 10px 30px;
     cursor: pointer;
 }
 
@@ -159,3 +165,10 @@ button:focus {
     height: 37px;
     cursor: pointer;
 }
+.img-inputs{
+    height: 50px;
+    width: 765px;
+    margin-left: 67px;
+    font-size: 17px
+}
+

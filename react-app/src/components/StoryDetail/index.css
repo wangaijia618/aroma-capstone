@@ -9,6 +9,7 @@
 .full-story-container {
     height: 100%;
     width: 100%;
+    margin-top: 70px;
 }
 
 .black-bar {
@@ -170,3 +171,4 @@
 .fa-regular {
  color: grey
 }
+

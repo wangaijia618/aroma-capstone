@@ -18,6 +18,17 @@ const LoginForm = ({closeModal, switchPage}) => {
       setErrors(data);
     }
   };
+  const DemoUser = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    const demoEmail = "demo@aa.io";
+    const demoPassword = "password";
+    return dispatch(login(demoEmail, demoPassword)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      })
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -40,19 +51,20 @@ const LoginForm = ({closeModal, switchPage}) => {
 
   return (
     <div className="login-container">
-      <button className="exit-icon" onClick={exitFromModal}>
+      <button className="exit-icon-login" onClick={exitFromModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
       <span className="login-modal-heading">Welcome back.</span>
     <form onSubmit={onLogin} className="signin-form">
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className="login-error-msg" key={ind}>{error}</div>
         ))}
       </div>
       <div>
         <label htmlFor='email'>Email</label>
         <input
+          className="login-input"
           name='email'
           type='text'
           placeholder='Email'
@@ -63,14 +75,19 @@ const LoginForm = ({closeModal, switchPage}) => {
       <div>
         <label htmlFor='password'>Password</label>
         <input
+          className="login-input"
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit' className="login-btn-modal">Login</button>
+        {/* <button type='submit' className="login-btn-modal">Login</button> */}
       </div>
+      <div className='login-buttons-outer'>
+          <button type='submit' className='login-btn-modal'>Login</button>
+          <button className='login-btn-modal' onClick={DemoUser}>Demo User</button>
+          </div>
     </form>
     <div className="switch-to-signup">
         <span>

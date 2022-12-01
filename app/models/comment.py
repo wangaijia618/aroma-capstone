@@ -32,5 +32,10 @@ class Comment(db.Model):
                 "id": self.user.id,
                 "username": self.user.username,
                 "profile_photo": self.user.profile_photo,
+            },
+            'Story': {
+                "id": self.story.id,
+                "title": self.story.title,
+                "img": self.story.img
             }
         }

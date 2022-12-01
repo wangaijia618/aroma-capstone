@@ -26,8 +26,8 @@ const MyComments = ({comment, user}) => {
   return (
     <div className="myreviews-review-container">
       <div div className="myreviews-image-container">
-        <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${comment?.story?.id}`}>
-          <img src={comment?.story?.img} />
+        <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${comment?.Story?.id}`}>
+          <img src={comment?.Story?.img} />
         </Link>
         <div className="review-button-wrap">
           <span>
@@ -52,12 +52,16 @@ const MyComments = ({comment, user}) => {
         <div className="my-single-header">
           Review For
           <div className="my-single-product-name">
-            {comment?.story?.title}
+          <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${comment?.Story?.id}`}>
+                {comment?.Story?.title}
+          </Link>
           </div>
         </div>
         <div className="my-single-stats">
           <div className="my-single-review-date">
+          <Link style={{ textDecoration: "none", color: "black" }} to={`/stories/${comment?.Story?.id}`}>
               {new Date(comment?.createdAt).toString().slice(3,-42)}
+          </Link>
           </div>
           {!showEditReview &&
           <>

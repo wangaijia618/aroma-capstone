@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import { getUserComments } from "../../store/comments"
 import MyComments from "./MyComments"
+import VerticalNavBar from '../navbar/VerticalNavBar/VerticalNavBar.js'
+import HorizontalNavBar from '../navbar/HorizontalNavBar/HorizontalNavBar.js'
 
 const LoadUserComments = () => {
   const dispatch = useDispatch()
@@ -20,6 +22,8 @@ console.log("RRRRRRRRRRRRRRRReviewsObj", reviewsObj)
 
   return (
     <div className="my-reviews-main">
+        { currentUser?  <VerticalNavBar />
+     :<HorizontalNavBar/> }
       <div className="my-reviews-upper">
         <div className="my-reviews-header">My Comments</div>
         {currentUser?.username &&

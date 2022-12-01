@@ -18,6 +18,9 @@ const CreateComment = ({storyId, setShowNewReviewModal}) => {
 
   const currentUser = useSelector((state) => state.session.user)
 
+  // const commentsArr = useSelector((state => state.commentState))
+  // console.log("??????????????????????",commentsArr)
+
   useEffect(() => {
     if (currentUser) setErrors([])
     else setErrors(["You must be logged in to leave a review"])
@@ -31,7 +34,7 @@ const CreateComment = ({storyId, setShowNewReviewModal}) => {
 
     const errorsArr = []
     if (content?.length > 1000) errorsArr.push("please enter a valid review fewer than 1000 characters long")
-    if (content?.length < 5) errorsArr.push("please enter a valid review more than 5 characters long")
+    // if (content?.length < 5) errorsArr.push("please enter a valid review more than 5 characters long")
     setErrors(errorsArr)
 
     if (errorsArr.length) return
@@ -41,7 +44,7 @@ const CreateComment = ({storyId, setShowNewReviewModal}) => {
 console.log("RRRRRRRRRRRRRRRcontent", content)
     const newReview = await dispatch(createComment(reviewInfo, +storyId))
     // if (newReview) {
-    //     setErrors(Object.keys(newReview));
+    //     setErrors(Object.values(newReview));
     //   } else {
 
     //     setErrors([]);

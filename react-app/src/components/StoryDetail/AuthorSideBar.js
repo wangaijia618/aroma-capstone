@@ -6,7 +6,7 @@ import { followAUser } from "../../store/follows";
 // import  FollowButton from "../util/FollowButton/index"
 // import { getCurUserFollowers } from "../../store/follows";
 // import FollowsModal from "../util/FollowsModal/index"
-
+import './index.css'
 function AuthorSideBar({ Author }) {
   const history = useHistory();
   const dispatch = useDispatch();

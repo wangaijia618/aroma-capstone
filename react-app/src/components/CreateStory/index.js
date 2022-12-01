@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { createNewStory } from "../../store/stories.js";
 // import uploadImg from "../../icons/uploadImg.png";
 import "./CreateStory.css";
+import VerticalNavBar from '../navbar/VerticalNavBar/VerticalNavBar.js'
+import HorizontalNavBar from '../navbar/HorizontalNavBar/HorizontalNavBar.js'
 
 function CreateStory() {
   const dispatch = useDispatch();
@@ -63,6 +65,9 @@ function CreateStory() {
     return null
 }
   return (
+    <div>
+      { sessionUser?  <VerticalNavBar />
+    :<HorizontalNavBar/> }
     <div className="story-form-container">
       <form onSubmit={handleSubmit}>
         <div className="story-form-top-div">
@@ -87,18 +92,9 @@ function CreateStory() {
             placeholder={"Title"}
             required
           ></input>
+
           <div className="upload-and-story-cntner">
-            <div className="create-story-upload-and-story-div">
-              <input
-                name="img"
-                className="img-inputs"
-                type="text"
-                placeholder={"upload image"}
-                value={img}
-                onChange={(e) => setImg(e.target.value)}
-                required
-              ></input>
-            </div>
+
             <textarea
               name="story"
               className="story-form-inputs"
@@ -109,7 +105,19 @@ function CreateStory() {
               placeholder={"Tell your story..."}
               required
             ></textarea>
+
+              <input
+                name="img"
+                className="img-inputs"
+                type="text"
+                placeholder={"upload image"}
+                value={img}
+                onChange={(e) => setImg(e.target.value)}
+                required
+              ></input>
+
           </div>
+
           <div className="form-btm-text-and-errors-div">
             {!errors.includes("Please provide an image for your story.") &&
             img ? (
@@ -137,6 +145,7 @@ function CreateStory() {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }

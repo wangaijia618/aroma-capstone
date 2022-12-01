@@ -7,8 +7,7 @@ const SplashPage = () => {
     return (
       <div className="HomeBanner-container">
 
- <img className="flower-gif" src={flower2} type='video/mp4' alt="background" >
-            </img>
+
         <div className="HomeBanner-main-text">
           <div className="HomeBanner-main-header">
             <h1>Stay curious.</h1>
@@ -21,7 +20,8 @@ const SplashPage = () => {
           <LoginPopUpModal location='start-reading' />
         </div>
         <div className="medium-img">
-
+          <img className="flower-gif" src={flower2} type='video/mp4' alt="background" >
+          </img>
         </div>
       </div>
     );

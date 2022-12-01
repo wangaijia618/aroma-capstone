@@ -28,12 +28,13 @@
     color: white;
     cursor: pointer;
     justify-content: center;
-    font-size: 30px;
-    border-radius: 100px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    font-size: 25px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-family: "Roboto Condensed", sans-serif;
   }
 
@@ -46,8 +47,8 @@
   .HomeBanner-main-text {
     /* margin-left: 200px; */
     position: absolute;
-    top: 20%;
-    left: 35%;
+    top: 15%;
+    left: 33%;
     /* transform: translate(-50%, -50%); */
   }
 
@@ -58,7 +59,7 @@
       color: #292929;
     }
 
-    .start-reading-btn {
+    /* .start-reading-btn {
       align-items: center;
       background-color: #292929;
       border: 0;
@@ -72,7 +73,7 @@
       padding-top: 10px;
       padding-bottom: 10px;
       font-family: "Roboto Condensed", sans-serif;
-    }
+    } */
 
     .HomeBanner-sub-text h2 {
       font-size: 20px;
@@ -80,7 +81,7 @@
       color: #292929;
     }
 
-    .HomeBanner-main-text {
+    /* .HomeBanner-main-text {
       margin-left: 200px;
-    }
+    } */
   }

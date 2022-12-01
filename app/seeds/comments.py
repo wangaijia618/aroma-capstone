@@ -28,7 +28,7 @@ def seed_comments():
             content='Very informative post. Thanks for sharing'
            ),
         Comment(
-            user_id=4,
+            user_id=6,
             story_id=4,
             content='Hi, a very cool idea! please give a link to the chat bot or to the site where you can immediately try'
             ),

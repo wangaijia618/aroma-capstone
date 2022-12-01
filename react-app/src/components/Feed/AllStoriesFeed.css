@@ -66,3 +66,14 @@
     color: rgba(117, 117, 117, 1);
     padding: 8px 0px 0px 0px;
 }
+
+.all-stories-title{
+    margin-left:74px;
+    font-size: 35px;
+    margin-top: 12px;
+    margin-bottom: 35px;
+    background-color: #00E3AA;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
