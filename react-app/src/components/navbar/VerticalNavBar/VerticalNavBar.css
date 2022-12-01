@@ -59,12 +59,22 @@
     font-size: 35px;
     margin-top: 39px;
   } */
-.hide{
-    display: none
+.navlink-ver .tooltiptext{
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  margin-top: 45px;
+  margin-left: 5px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index:1
+
 }
-.navbaricon:hover + .hide {
-    display:inline;
-    color: white;
-    background-color: black;
-    margin-left: 3px;
+
+.navlink-ver:hover .tooltiptext {
+  visibility: visible;
 }

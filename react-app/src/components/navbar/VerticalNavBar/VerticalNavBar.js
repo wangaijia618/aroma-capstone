@@ -27,39 +27,45 @@ const VerticalNavBar = ({ user }) => {
         <ul>
           <li>
             <NavLink
+              className="navlink-ver"
               to="/"
               exact={true}
               activeClassName="active"
               style={{ textDecoration: "none" }}
             >
               <FiHome className="navbaricon" />
+              <span class="tooltiptext">Home</span>
             </NavLink>
           </li>
           <li>
             <NavLink
+              className="navlink-ver"
               to={`/myprofile`}
               exact={true}
               activeClassName="active"
               style={{ textDecoration: "none" }}
             >
               <BsJournalBookmarkFill className="navbaricon" />
+              <span class="tooltiptext">My Stories</span>
             </NavLink>
           </li>
           <li>
             <NavLink
+              className="navlink-ver"
               to={`/my-comments`}
               exact={true}
               activeClassName="active"
               style={{ textDecoration: "none" }}
             >
               <BiCommentDetail className="navbaricon" />
-               <div className="hide">My Comments</div>
+              <span class="tooltiptext">My Comments</span>
             </NavLink>
 
           </li>
           <li>
-            <NavLink to="/new-story" exact={true} activeClassName="active" style={{ textDecoration: "none" }}>
+            <NavLink className="navlink-ver" to="/new-story" exact={true} activeClassName="active" style={{ textDecoration: "none" }}>
               <FiEdit className="navbaricon" />
+              <span class="tooltiptext">Write a Story</span>
             </NavLink>
           </li>
         </ul>

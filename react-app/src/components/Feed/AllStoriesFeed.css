@@ -1,15 +1,16 @@
 .story-preview-container {
-    height: 200px;
-    width: 70%;
-    margin-left: 10%;
+    height: 300px;
+    width: 100%;
+    margin-left: 45px;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
+    /* border-bottom: 1px solid black */
 }
 
 .text-container {
     display: block;
-    width: 70%;
+    width: 50%;
 }
 
 .author-container {
@@ -36,8 +37,8 @@
 }
 
 .image-container {
-    width: 30%;
-    height: 175px;
+    width: 200px;
+    height: 185px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

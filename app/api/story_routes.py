@@ -72,7 +72,7 @@ def edit_story(id):
         story.updated_at=datetime.now()
 
         db.session.commit()
-        return story.to_dict()
+        return story.preview_to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
