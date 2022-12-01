@@ -11,7 +11,7 @@ def seed_stories():
             user_id=2,
             title='Petali e Spade by Nobile 1942',
             story="To smell the opening of Petali e Spade by Nobile 1942 is to smell a fragrance which feels like a homage to the vintage scents of yesteryear. It’s a huge opening, full of aldehydes which race, screaming, from the bottle. Supremely powdery, but with the lift of citrus and white peach fluttering about in the background, when you smell the start of the scent it is very easy to understand the “swords” part of the fragrance’s name. The aldehydes give that adrenaline feel and you know, right from the start that love it or hate it this isn’t going to be a boring scent.",
-            img='https://images.pexels.com/photos/1122875/pexels-photo-1122875.jpeg?auto=compress&cs=tinysrgb&w=600'),
+            img='https://fimgs.net/himg/o.LtFfMpWaGBA.jpg'),
       #3
          Story(
             user_id=3,
