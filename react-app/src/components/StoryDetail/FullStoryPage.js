@@ -11,7 +11,7 @@ import HorizontalNavBar from '../navbar/HorizontalNavBar/HorizontalNavBar.js'
 function FullStoryPage() {
   const { storyId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
-  const story = useSelector((state) => state.storyState.[+storyId])
+  const story = useSelector((state) => state.storyState[storyId])
   const dispatch = useDispatch();
   const history = useHistory();
   const commentsArr = Object.values(useSelector(state =>state.commentState.comments))
