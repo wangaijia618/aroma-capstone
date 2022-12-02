@@ -102,3 +102,11 @@
     margin: auto;
     text-align: center;
   }
+  .signup-errors{
+    color: red;
+    font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  }
+  .signup-errors-outer{
+    margin-bottom: 10px
+
+  }

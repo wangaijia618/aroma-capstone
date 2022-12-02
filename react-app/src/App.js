@@ -34,9 +34,7 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
-        <Route path="/" exact={true}>
-          <HomePage />
-        </Route>
+
         <Route path="/stories/:storyId" exact={true}>
             <FullStoryPage />
         </Route>
@@ -49,6 +47,9 @@ function App() {
         </Route>
         <Route path='/my-comments' exact={true} >
           <LoadUserComments />
+        </Route>
+         <Route path="/" exact={true}>
+          <HomePage />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

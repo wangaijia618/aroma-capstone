@@ -102,7 +102,7 @@ export const getProfileFeed = () => async (dispatch) => {
 //Get SINGLE STORY
 export const getSingleStory = (storyId) => async (dispatch) => {
   const res = await fetch(`/api/stories/${storyId}`);
-  // console.log("........singlestoryRES........", res)
+  console.log("........singlestoryRES........", res)
   if (res.ok) {
     const story = await res.json();
     dispatch(getStoryDetails(story));

@@ -13,11 +13,13 @@ story_routes = Blueprint('stories', __name__)
 def get_all_stories():
     stories = Story.query.all()
     return {'Stories': [story.preview_to_dict() for story in stories]}
-    print('!!!!!!!!!!!!!!', stories)
+
 #get a single story
 @story_routes.route("/<int:id>")
 def get_one_story(id):
     story = Story.query.get(id)
+    print('$$$$$$$$$$$$$$', story)
+    print('$$$$$$$$$$$$$$', story.id)
     if story is None:
         return {'message': 'Story could not be found'}, 404
     return story.full_story_to_dict()

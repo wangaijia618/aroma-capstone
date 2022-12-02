@@ -27,6 +27,13 @@ class Story(db.Model):
 
 
 #####################################
+    # def num_likes(self):
+    #     return len(self.likes)
+
+    def num_comments(self):
+        return len(self.comments)
+
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -71,11 +78,3 @@ class Story(db.Model):
                 "profile_photo": self.user.profile_photo
             }
         }
-
-
-
-    # def num_likes(self):
-    #     return len(self.likes)
-
-    def num_comments(self):
-        return len(self.comments)

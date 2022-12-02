@@ -20,7 +20,9 @@ const SignUpForm = ({closeModal, switchPage}) => {
       if (data) {
         setErrors(data)
       }
-    }
+    } else {
+        setErrors(["Please Confirm Password"])
+      }
   };
 
   const updateUsername = (e) => {
@@ -57,9 +59,9 @@ const SignUpForm = ({closeModal, switchPage}) => {
     </button>
     <span className="signup-modal-heading">Join Medium.</span>
     <form onSubmit={onSignUp} className="signup-form">
-      <div>
+      <div className="signup-errors-outer">
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className="signup-errors" key={ind}>{error}</div>
         ))}
       </div>
       <div>
