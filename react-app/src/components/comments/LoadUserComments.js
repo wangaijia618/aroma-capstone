@@ -30,7 +30,6 @@ console.log("RRRRRRRRRRRRRRRReviewsObj", reviewsObj)
           <div className="my-reviews-name">
               <span>{currentUser?.username}</span>
               &nbsp;
-              {/* <i className="fa-solid fa-angle-right"></i> */}
           </div>
         }
       </div>

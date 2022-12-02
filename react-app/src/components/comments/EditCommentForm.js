@@ -25,7 +25,7 @@ const EditCommentForm = ({mycomment, showEditReview, setShowEditReview}) => {
     const errorsArr = []
 
     if (editReview.length > 1000) errorsArr.push("please enter a valid review fewer than 1000 characters long")
-
+    else if (editReview.length < 1) errorsArr.push("Comments can not be empty")
     setErrors(errorsArr)
 
     if (errorsArr.length) return
@@ -59,7 +59,7 @@ const EditCommentForm = ({mycomment, showEditReview, setShowEditReview}) => {
         {
         hasSubmitted &&
         errors &&
-        errors.map((error)=>(<div key={error}>{error}</div>))
+        errors.map((error)=>(<div className="edit-comment-error" key={error}>{error}</div>))
         }
       </div>
 

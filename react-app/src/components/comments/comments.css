@@ -17,8 +17,8 @@
 
   .myreviews-review-container {
     display: grid;
-    grid-template-columns: minmax(30%,70%);
-    grid-template-rows:  minmax(60%,90%);
+    grid-template-columns: minmax(0,40%) minmax(0, 60%);
+    grid-template-rows: auto;
     height: auto;
     margin-bottom: 60px;
   }
@@ -37,6 +37,7 @@
 
   .my-reviews-main {
     margin-bottom: 1.5rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,41 +56,42 @@
   }
 
   .my-reviews-header {
-    margin: -90px 0 10px 150px;
-    /* margin-top:10px; */
+    margin: -90px 0 10px 160px;
     font-size: 1.5rem;
     width: 1220px;
   }
 
   .my-reviews-name {
     font-size: 1rem;
-    margin: 0 auto 2rem;
-    width: 1220px;
-    display: flex;
-    align-items: center;
+    margin-left: 160px;
+
   }
 
 
   .my-reviews-outer {
     width: 1226px;
     padding-top: 8.2rem;
+    padding-left: 150px;
   }
 
   .my-reviews-inner {
-    display: grid;
+    /* display: grid;
     grid-template-columns: minmax(0,50%) minmax(0,50%);
-    margin-top: 1rem;
+    margin-top: 1rem; */
   }
 
 
   .my-single-info {
-    padding: 0 0;
+    width: 430px;
+    padding: 0 20px;
     position: relative;
   }
 
   .my-single-product-name {
     /* color: rgb(241, 101, 34, 0.8); */
     font-size: 18px;
+    font-weight:600;
+    text-decoration: underline;
   }
 
   .my-single-review-date {
@@ -122,19 +124,16 @@
     width: 115px;
     padding: 3px 10px;
     /* margin: 3px 0px 20px 0px; */
-    border: 1px black solid;
+    border: 1.3px black solid;
     border-radius: 4px;
+    background: white;
     /* background: black; */
-    background: black;
-    color: white;
+    color: black;
+
   }
 
   .review-button:hover {
-    background: white;
-    /* border: 1px black solid; */
-    border: 1px black solid;
-    color:black;
-    /* color:black; */
+    transform:scale(1.1, 1.1)
   }
   /*
   .fa-quote-left {
