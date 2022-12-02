@@ -126,6 +126,8 @@ p.new-story-edit-story-text {
     resize: none;
     height: 300px;
     margin-left: 66px;
+    /* overflow-wrap: break-word;
+    word-wrap: break-word; */
 }
 
 
@@ -171,4 +173,3 @@ button:focus {
     margin-left: 67px;
     font-size: 17px
 }
-

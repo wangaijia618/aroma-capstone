@@ -10,13 +10,14 @@
     height: 100%;
     width: 100%;
     margin-top: 70px;
+    /* margin-left: 30px */
 }
 
 .black-bar {
     position: absolute;
     top: 0px;
-    left: 70%;
-    height: 100vh;
+    left: 72%;
+    height: 300vh;
     border-right: 2px solid rgb(208, 206, 206);
 }
 
@@ -62,21 +63,30 @@
     background-position: center center;
 }
 
-/* .full-story-title {} */
+.full-story-title {
+    width: 80%;
+    border-bottom: 1px solid grey;
+}
 
 .full-story-title-text {
     font-size: 32px;
     font-weight: bold;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* margin-right: 10px */
 }
 
 .full-story-content {
     width: 80%;
     border-bottom: 1px solid grey;
+
 }
 
 .full-story-content-text {
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .author-sidebar-profile-image-container {
@@ -171,4 +181,3 @@
 .fa-regular {
  color: grey
 }
-
