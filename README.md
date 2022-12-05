@@ -1,6 +1,64 @@
-# Flask React Project
+# Welcome to Aroma!
 
-This is the starter for the Flask React project.
+![logo](https://user-images.githubusercontent.com/104793402/205541089-d1e3215a-1f1c-42b1-ba99-4d836e39b877.png)
+
+Our Live Site: [AROMA](https://aroma-capstone-project.onrender.com/)
+
+Aroma is a blogging website where people write stories and reviews about anything related to perfume. The readers get insprition by reading the articles and are able to share their ideas.  It is a clone of the blogging website [Medium](https://medium.com/). 
+
+
+## Languages, Frameworks, Platforms and Libraries
+
+### Languages
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+### Backend
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-100000?style=for-the-badge&logo=sql&logoColor=BA1212&labelColor=AD0000&color=A90000) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+
+### Frontend
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+### Hosting
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+
+## Wiki Links:
+* [Aroma Wiki](https://github.com/wangaijia618/aroma-capstone/wiki)
+* [Database Schema](https://github.com/wangaijia618/aroma-capstone/wiki/Database-Schema)
+* [Features List](https://github.com/wangaijia618/aroma-capstone/wiki/Features)
+* [User Stories](https://github.com/wangaijia618/aroma-capstone/wiki/User-Stories)
+* [Routes](https://github.com/wangaijia618/aroma-capstone/wiki/Routes)
+
+
+## Splash Page
+![Screen Shot 2022-12-04 at 20 39 03](https://user-images.githubusercontent.com/104793402/205542256-d76da721-783d-4cac-b8f1-89f3458caaf8.png)
+
+
+## Sign In/ Sign Up Modal
+![Screen Shot 2022-12-04 at 20 39 23](https://user-images.githubusercontent.com/104793402/205542286-ad4305f9-ebd6-44b5-8f3b-edaabff101a2.png)
+![Screen Shot 2022-12-04 at 20 39 31](https://user-images.githubusercontent.com/104793402/205542290-f3d92d72-9424-4c58-8b33-2242543d8c58.png)
+
+
+## Home Page after Login
+![Screen Shot 2022-12-04 at 20 40 20](https://user-images.githubusercontent.com/104793402/205542464-31465300-2c61-49a6-a6a1-5d3b9f4a1c98.png)
+
+
+
+## Story Detail
+![Screen Shot 2022-12-04 at 21 23 14](https://user-images.githubusercontent.com/104793402/205542716-5f49d81a-bbbe-45d1-a068-d5e2eb38068d.png)
+
+
+## Write a story
+![Screen Shot 2022-12-04 at 20 40 41](https://user-images.githubusercontent.com/104793402/205542389-d81e989f-75a4-493d-bbea-6bd9620a51fe.png)
+
+## Edit a published Story
+![Screen Shot 2022-12-04 at 20 42 56](https://user-images.githubusercontent.com/104793402/205542782-b5b694a0-38ca-4589-969f-bf2922dbacc4.png)
+
+
+
+## Manage My Reviews
+![Screen Shot 2022-12-04 at 20 43 07](https://user-images.githubusercontent.com/104793402/205542361-865b9452-43f1-47e5-aebc-6a858204de6f.png)
+
+
 
 ## Getting started
 1. Clone this repository (only this branch)
@@ -38,111 +96,3 @@ This is the starter for the Flask React project.
    ```bash
    flask run
    ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-
-## Deployment through Render.com
-
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
-
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
-
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
-
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
-
-### Part A: Configure the Start and Build Commands
-
-Start by giving your application a name.
-
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
-
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
-
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
-
-For your Flask project, enter the following command into the Build field, all in
-one line:
-
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
-
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
-
-Now, add your start command in the Start field:
-
-```shell
-# start script
-gunicorn app:app
-```
-
-_If you are using websockets, use the following start command instead for increased performance:_
-
-`gunicorn --worker-class eventlet -w 1 app:app`
-
-### Part B: Add the Environment Variables
-
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
-
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
-
-Add the following keys and values in the Render GUI form:
-
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
