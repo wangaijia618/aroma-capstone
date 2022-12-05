@@ -2,7 +2,7 @@
 
 ![logo](https://user-images.githubusercontent.com/104793402/205541089-d1e3215a-1f1c-42b1-ba99-4d836e39b877.png)
 
-Our Live Site: [AROMA](https://aroma-capstone-project.onrender.com/)
+Live Site: [AROMA](https://aroma-capstone-project.onrender.com/)
 
 Aroma is a blogging website where people write stories and reviews about anything related to perfume. The readers get insprition by reading the articles and are able to share their ideas.  It is a clone of the blogging website [Medium](https://medium.com/). 
 
