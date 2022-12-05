@@ -9,8 +9,8 @@ import"./comments.css"
   const productReviews = useSelector((state)=>state.commentState.comments) //normalized obj
   const reviewsArr = Object.values(productReviews) //array
 //   const [showEditReview, setShowEditReview] = useState(false)
-    console.log("AAAAAAAAAAAAAAAreview", productReviews)
-    console.log("AAAAAAAAAAAAAAAreview", reviewsArr)
+    // console.log("AAAAAAAAAAAAAAAreview", productReviews)
+    // console.log("AAAAAAAAAAAAAAAreview", reviewsArr)
 
   useEffect(async() => {
     await dispatch(getAllComments(parseInt(storyId)))

@@ -49,7 +49,7 @@ function CreateStory() {
         story,
         img
     }
-    console.log("NNNNNNNNNNNNew Story", newStory)
+    // console.log("NNNNNNNNNNNNew Story", newStory)
     const data = await dispatch(createNewStory(newStory));
     history.push('/')
     // if (data) {

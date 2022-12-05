@@ -15,9 +15,9 @@ function FullStoryPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const commentsArr = Object.values(useSelector(state =>state.commentState.comments))
-  console.log("heyheyheyheyheyhey", storyId)
-  console.log("heyheyheyheyheyhey", typeof(parseInt(storyId)))
-  console.log("heyheyheyheyheystory", story)
+  // console.log("heyheyheyheyheyhey", storyId)
+  // console.log("heyheyheyheyheyhey", typeof(parseInt(storyId)))
+  // console.log("heyheyheyheyheystory", story)
   useEffect(() => {
      dispatch(getSingleStory(parseInt(storyId)));
 

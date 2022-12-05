@@ -11,7 +11,7 @@ const LoadUserComments = () => {
   const currentUser = useSelector((state)=>state.session.user)
   const reviewsObj = useSelector((state) => state.commentState.comments) // {1:{x}, 2:{y}, 3:{z}}
   const commentsArr = Object.values(reviewsObj) // [{x}, {y}, {z}]
-console.log("RRRRRRRRRRRRRRRReviewsObj", reviewsObj)
+// console.log("RRRRRRRRRRRRRRRReviewsObj", reviewsObj)
   useEffect(()=>{
     dispatch(getUserComments())
   }, [dispatch, currentUser,

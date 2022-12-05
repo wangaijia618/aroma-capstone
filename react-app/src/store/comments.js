@@ -125,8 +125,8 @@ export const getUserComments = () => async (dispatch) => {
     //CREATE Comment
 export const createComment = (comment, storyId) => async(dispatch) =>  {
     const {content} =  comment;
-    console.log("#####################", content)
-    console.log("#####################", storyId)
+    // console.log("#####################", content)
+    // console.log("#####################", storyId)
     const res = await fetch(`/api/stories/${storyId}/comments`, {
         method: 'POST',
         headers: {
@@ -136,7 +136,7 @@ export const createComment = (comment, storyId) => async(dispatch) =>  {
             content
         })
     });
-console.log("RRRRRRRRRRRRRRRRes", res)
+// console.log("RRRRRRRRRRRRRRRRes", res)
     if(res.ok){
         const newComment = await res.json();
         dispatch(addComment(newComment));

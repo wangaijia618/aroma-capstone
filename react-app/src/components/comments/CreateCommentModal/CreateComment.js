@@ -41,7 +41,7 @@ const CreateComment = ({storyId, setShowNewReviewModal}) => {
 
     const reviewInfo = { content: content }
 // console.log("RRRRRRRRRRRRRRRReviewinfo", reviewInfo)
-console.log("RRRRRRRRRRRRRRRcontent", content)
+// console.log("RRRRRRRRRRRRRRRcontent", content)
     const newReview = await dispatch(createComment(reviewInfo, +storyId))
     // if (newReview) {
     //     setErrors(Object.values(newReview));

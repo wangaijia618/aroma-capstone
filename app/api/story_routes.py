@@ -18,8 +18,8 @@ def get_all_stories():
 @story_routes.route("/<int:id>")
 def get_one_story(id):
     story = Story.query.get(id)
-    print('$$$$$$$$$$$$$$', story)
-    print('$$$$$$$$$$$$$$', story.id)
+    # print('$$$$$$$$$$$$$$', story)
+    # print('$$$$$$$$$$$$$$', story.id)
     if story is None:
         return {'message': 'Story could not be found'}, 404
     return story.full_story_to_dict()
@@ -40,9 +40,9 @@ def new_story():
     data = json.loads(request.data)
     form = StoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("CCCCCCCCCCCCCCCurrent", current_user.id)
-    print("CCCCCCCCCCCCCCCurrent", type(current_user.id))
-    print("FFFFFFFFFFFFFFFForm", data)
+    # print("CCCCCCCCCCCCCCCurrent", current_user.id)
+    # print("CCCCCCCCCCCCCCCurrent", type(current_user.id))
+    # print("FFFFFFFFFFFFFFFForm", data)
     if form.validate_on_submit():
         data = Story(
             user_id=current_user.id,
@@ -50,7 +50,7 @@ def new_story():
             story=form.data["story"],
             img=form.data["img"]
         )
-        print("!!!!!!!!!!!!!!!storydata", data)
+        # print("!!!!!!!!!!!!!!!storydata", data)
         db.session.add(data)
         db.session.commit()
         return data.to_dict()
@@ -118,10 +118,10 @@ def create_story_comment(story_id):
   story = Story.query.get(story_id)
   form = CommentForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  print("FFFFFFFFFFFFFFFFFForm",form)
-  print("FFFFFFFFFFFFFFFFFForm",form.data)
+#   print("FFFFFFFFFFFFFFFFFForm",form)
+#   print("FFFFFFFFFFFFFFFFFForm",form.data)
 
-  print("FFFFFFFFFFFFFFFREQUESTDATA", data)
+#   print("FFFFFFFFFFFFFFFREQUESTDATA", data)
   if not story:
     return {'message': 'Story could not be found'}, 404
   if form.validate_on_submit:
@@ -130,8 +130,8 @@ def create_story_comment(story_id):
             story_id=story_id,
             user_id=current_user.id
         )
-      print("AAAAAAAAAAAAAAcontent",form.data['content'])
-      print("!!!!!!!!!!!!!!!storydata", comment)
+    #   print("AAAAAAAAAAAAAAcontent",form.data['content'])
+    #   print("!!!!!!!!!!!!!!!storydata", comment)
       db.session.add(comment)
       db.session.commit()
       return comment.to_dict()
