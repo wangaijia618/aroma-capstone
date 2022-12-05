@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { followAUser } from "../../store/follows";
-import AboutMe from '../Footer/AboutMe.js'
+import AboutMe from '../EndFooter/AboutMe1.js'
 import './index.css'
 function AuthorSideBar({ Author }) {
   const history = useHistory();
