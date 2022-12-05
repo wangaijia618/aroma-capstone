@@ -2,7 +2,6 @@ import React from "react"
 import LoginPopUpModal from "../auth/LoginPopUp";
 import "./HomePage.css"
 import flower2 from "../../images/flower2.gif"
-import AboutMe from "../Footer/AboutMe.js"
 import HorizontalNavBar from '../navbar/HorizontalNavBar/HorizontalNavBar.js'
 const SplashPage = () => {
     return (
