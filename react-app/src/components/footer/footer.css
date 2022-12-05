@@ -26,7 +26,7 @@
   .footer-lower {
     overflow-y: hidden;
     min-width: 100%;
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,13 +35,13 @@
   }
 
   .footer-happily-header {
-    font-family:  "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
+    font-family:  cursive;
     color: white;
     font-size: 1.3rem;
   }
 
   .footer-happily-description {
-    font-family:  "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
+    font-family:  cursive;
     color: white;
     font-size: 0.85rem;
     margin-top: 0.4rem;
@@ -57,7 +57,7 @@
   .socials-main {
     width: 100%;
     justify-content: space-between;
-    width: 1230px;
+    /* width: 1230px; */
   }
 
   .socials-inner {
@@ -67,7 +67,7 @@
   }
 
   .social-link{
-    font-family:  "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
+    font-family:  cursive;
 
     text-decoration: none;
     margin: 4px 12px;
@@ -120,4 +120,7 @@
   }
 .name-link{
     color: white
+}
+.name-link{
+    font-family: cursive;
 }

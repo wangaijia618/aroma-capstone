@@ -2,10 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { followAUser } from "../../store/follows";
-// import  FollowingModal from "../util/FollowModal/index.js";
-// import  FollowButton from "../util/FollowButton/index"
-// import { getCurUserFollowers } from "../../store/follows";
-// import FollowsModal from "../util/FollowsModal/index"
+import AboutMe from '../Footer/AboutMe.js'
 import './index.css'
 function AuthorSideBar({ Author }) {
   const history = useHistory();
@@ -46,6 +43,9 @@ function AuthorSideBar({ Author }) {
       </div>
       <div className="author-sidebar-bio">
         {`${Author?.bio}`}
+      </div>
+      <div className="aboutme-container">
+        <AboutMe />
       </div>
       {/* </NavLink> */}
       {/* <div className="followers-count-container"> */}

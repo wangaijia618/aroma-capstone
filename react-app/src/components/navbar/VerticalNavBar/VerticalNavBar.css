@@ -78,3 +78,7 @@
 .navlink-ver:hover .tooltiptext {
   visibility: visible;
 }
+
+.vertical-logout-button{
+  margin-bottom: 80px
+}

@@ -5,7 +5,8 @@ import AllStoriesFeed from '../Feed/AllStoriesFeed';
 import SplashPage from "./SplashPage"
 // import FeedSwitch from '../Feed/FeedSwitch'
 import VerticalNavBar from '../navbar/VerticalNavBar/VerticalNavBar.js'
-
+import Footer from '../Footer/Footer.js'
+import AboutMe from "../Footer/AboutMe.js"
 const HomePage = () => {
     const sessionUser = useSelector((state) => state.session.user);
 
@@ -24,10 +25,12 @@ const HomePage = () => {
             {!sessionUser &&
             (
             <div>
+
                 <SplashPage />
             <AllStoriesFeed />
             </div>
             )}
+            <Footer />
         </div>
     )
 }
