@@ -96,3 +96,6 @@ Aroma is a blogging website where people write stories and reviews about anythin
    ```bash
    flask run
    ```
+## Contact Info
+
+[LinkedIn](https://www.linkedin.com/in/aijia-wang-b18726131/) || [GitHub](https://github.com/wangaijia618)
