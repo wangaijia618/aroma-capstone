@@ -4,7 +4,7 @@ import { getAllComments } from "../../store/comments"
 // import EditReviewForm from "./EditReviewForm"
 import"./comments.css"
 
-  const LoadStoryComments = ({ storyId }) => {
+  const LoadStoryComments = ({ story, storyId }) => {
   const dispatch = useDispatch()
   const productReviews = useSelector((state)=>state.commentState.comments) //normalized obj
   const reviewsArr = Object.values(productReviews) //array
@@ -12,8 +12,8 @@ import"./comments.css"
     console.log("AAAAAAAAAAAAAAAreview", productReviews)
     console.log("AAAAAAAAAAAAAAAreview", reviewsArr)
 
-  useEffect(() => {
-    dispatch(getAllComments(storyId))
+  useEffect(async() => {
+    await dispatch(getAllComments(parseInt(storyId)))
   }, [dispatch, storyId])
 
   if (!reviewsArr.length) return null

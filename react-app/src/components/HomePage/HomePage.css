@@ -5,10 +5,9 @@
     margin-bottom: 40px;
     text-align: center;
   }
-  .medium-img{
+  /* .medium-img{
+  } */
 
-
-  }
   .flower-gif{
     width: 100%;
     height: 650px;
@@ -59,7 +58,7 @@
       color: #292929;
     }
 
-    /* .start-reading-btn {
+    .start-reading-btn {
       align-items: center;
       background-color: #292929;
       border: 0;
@@ -73,7 +72,7 @@
       padding-top: 10px;
       padding-bottom: 10px;
       font-family: "Roboto Condensed", sans-serif;
-    } */
+    }
 
     .HomeBanner-sub-text h2 {
       font-size: 20px;
@@ -81,7 +80,7 @@
       color: #292929;
     }
 
-    /* .HomeBanner-main-text {
+    .HomeBanner-main-text {
       margin-left: 200px;
-    } */
+    }
   }

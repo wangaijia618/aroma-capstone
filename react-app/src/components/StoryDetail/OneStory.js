@@ -9,7 +9,7 @@ import LoadStoryComments from "../comments/LoadStoryComments";
 import "./index.css"
 import "../comments/comments.css"
 import CreateCommentModal from "../comments/CreateCommentModal"
-
+import noimage from "./noimage.jpg"
 
 function OneStory({ story, storyId }) {
   const history = useHistory();
@@ -18,7 +18,7 @@ function OneStory({ story, storyId }) {
   let EditedDate;
   let CreatedDate;
   let StoryImg;
-  let editStoryBtn;
+
 
 //   if(sessionUser){
 //     if (sessionUser.id === story?.user_id) {
@@ -56,6 +56,14 @@ function OneStory({ story, storyId }) {
       ></div>
     );
   }
+  // if (story?.img.isValid()) {
+  //   StoryImg = (
+  //     <div
+  //       className="full-story-image-container"
+  //       style={{ backgroundImage: `url('${noimage}')` }}
+  //     ></div>
+  //   );
+  // }
 
 
   return (
@@ -138,7 +146,7 @@ function OneStory({ story, storyId }) {
                 }
                 <div className="story-review-section">
         <div className="one-story-comments-container">
-                <LoadStoryComments storyId={storyId}/>
+                <LoadStoryComments story={story} storyId={storyId}/>
             </div>
             </div>
             </div>

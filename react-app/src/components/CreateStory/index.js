@@ -30,13 +30,19 @@ function CreateStory() {
     else if (story.length < 1)
       errors.push("Please provide a story to publish.");
     if (!img) errors.push("Please provide an image for your story.");
+    else if(!img.includes('https://'))
+      errors.push("Please provide one image with 'https://'");
+    else if(!img.includes('jpeg') && !img.includes('jpg') && !img.includes('png'))
+      errors.push('Provide a valid image url')
 
     setErrors(errors);
   }, [title, story, img]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (errors.length > 0) {
+      return
+  }
     let newStory = {
         user_id: Number(sessionUser.id),
         title,
@@ -45,16 +51,11 @@ function CreateStory() {
     }
     console.log("NNNNNNNNNNNNew Story", newStory)
     const data = await dispatch(createNewStory(newStory));
-
-    if (data) {
-      setErrors(Object.keys(data));
-    } else {
-
-      setErrors([]);
-      return history.push(`/`);
-    }
-    return history.push('/')
-  };
+    history.push('/')
+    // if (data) {
+    //   setErrors(data);
+    // }
+  }
 
 //   const updateImage = (e) => {
 //     const file = e.target.files[0];
@@ -119,7 +120,8 @@ function CreateStory() {
           </div>
 
           <div className="form-btm-text-and-errors-div">
-            {!errors.includes("Please provide an image for your story.") &&
+            {!errors.includes("Please provide one image with 'https://'") &&
+            !errors.includes("Provide a valid image url") &&
             img ? (
               <p
                 className="form-btm-text-and-errors"

@@ -1,5 +1,5 @@
 import React from "react";
-
+import noimage from "./noimage.jpg"
 function StoryPreview({ story }) {
     let CreatedDate;
 
@@ -22,7 +22,7 @@ function StoryPreview({ story }) {
               backgroundImage: `url('${
                 story?.Author?.profile_photo
                   ? story?.Author?.profile_photo
-                  : "https://images.pexels.com/photos/45901/oxeye-daisy-flower-ox-eye-white-45901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU"
               }')`,
             }}
           ></div>
@@ -42,7 +42,11 @@ function StoryPreview({ story }) {
       </div>
       <div
         className="image-container"
-        style={{ backgroundImage: `url('${story?.img}')` }}
+        /* {story?.img ?
+          (<img src={story.img} />) :
+          (<img src={noimage} alt="noimage" />)
+        } */
+         style={{ backgroundImage: `url('${story?.img}')` }}
       ></div>
     </div>
   );

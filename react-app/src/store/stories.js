@@ -102,12 +102,12 @@ export const getProfileFeed = () => async (dispatch) => {
 //Get SINGLE STORY
 export const getSingleStory = (storyId) => async (dispatch) => {
   const res = await fetch(`/api/stories/${storyId}`);
-  console.log("........singlestoryRES........", res)
+  // console.log("........singlestoryRES........", res)
   if (res.ok) {
     const story = await res.json();
     dispatch(getStoryDetails(story));
 
-    console.log("........singlestoryRES........", story)
+    // console.log("........singlestoryRES........", story)
     return res;
   }
 
@@ -116,9 +116,9 @@ export const getSingleStory = (storyId) => async (dispatch) => {
 //CREATE STORY
 export const createNewStory = (storydata) => async (dispatch) => {
   const { title, story, img } = storydata;
-console.log("#####################", storydata.title)
-console.log("#####################", storydata.story)
-console.log("#####################", storydata.img)
+// console.log("#####################", storydata.title)
+// console.log("#####################", storydata.story)
+// console.log("#####################", storydata.img)
   const res = await fetch("/api/stories/new-story", {
     method: "POST",
     headers: {
@@ -128,7 +128,7 @@ console.log("#####################", storydata.img)
       title, story, img
     }),
   });
- console.log("###################RES", res)
+//  console.log("###################RES", res)
   if (res.ok) {
     const newStory = await res.json();
     dispatch(addStory(newStory));
@@ -175,7 +175,7 @@ export default function storyReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_STORIES:
       action.stories.forEach((story) => newState[story.id] = story);
-      console.log('@@@@@@@@@@@@@@@@@',action.stories)
+      // console.log('@@@@@@@@@@@@@@@@@',action.stories)
       return newState;
     case GET_USER_STORIES:
       newState = {};

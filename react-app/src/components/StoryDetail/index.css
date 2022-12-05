@@ -13,13 +13,14 @@
     /* margin-left: 30px */
 }
 
-.black-bar {
-    position: absolute;
+/* .black-bar {
+    position: relative;
     top: 0px;
-    left: 72%;
-    height: 300vh;
+    margin-left: -500px;
+    height: 100vh;
+    height: 300px;
     border-right: 2px solid rgb(208, 206, 206);
-}
+} */
 
 .full-page-story-details-div {
     height: 100%;
@@ -38,11 +39,14 @@
 }
 
 .author-side-div {
+    margin-top: -500px;
     height: 100%;
     width: 30%;
     display: flex;
     align-items: center;
     padding-left: 3%;
+    border-left: 2px solid rgb(208, 206, 206);
+
 }
 
 
@@ -181,3 +185,6 @@
 .fa-regular {
  color: grey
 }
+/* .author-sidebar-container{
+    border-left: 2px solid black
+} */

@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='socials-main'>
           <div className='footer-middle-left'>
             <div className='footer-happily-header'>© 2022 Aroma</div>
-            <div className='footer-happily-description'>A site to read blogs.</div>
+            <div className='footer-happily-description'>A site to explore blogs about perfumes.</div>
           </div>
           <div className='footer-middle-right'>
             <div className='socials-inner'>
