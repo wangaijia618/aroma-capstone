@@ -15,6 +15,7 @@ import CreateStory from "./components/CreateStory"
 import Profile from "./components/Profile"
 import LoadUserComments from './components/comments/LoadUserComments';
 // import Footer from './components//Footer/Footer.js'
+// import Aboutme from './components//Footer/Footer.js'
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
