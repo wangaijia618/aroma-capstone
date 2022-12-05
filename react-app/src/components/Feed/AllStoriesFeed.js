@@ -12,10 +12,8 @@ function AllStoriesFeed() {
 
 
     useEffect(() => {
-      (async() => {
-        await dispatch(getAllStories());
+        dispatch(getAllStories());
         setLoaded(true);
-      })();
     }, [dispatch]);
 
 

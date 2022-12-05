@@ -4,10 +4,8 @@ import './Footer1.css'
 const Footer = () => {
   return (
     <div className='footer-main-container'>
-      <div className='footer-img-container'>
+
         {/* <img src={footer} className='main-footer-img' alt=''></img> */}
-      </div>
-      <div className='footer-middle'></div>
       <div className='footer-lower'>
         <div className='socials-main'>
           <div className='footer-middle-left'>

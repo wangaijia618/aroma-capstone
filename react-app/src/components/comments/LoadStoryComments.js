@@ -12,8 +12,8 @@ import"./comments.css"
     // console.log("AAAAAAAAAAAAAAAreview", productReviews)
     // console.log("AAAAAAAAAAAAAAAreview", reviewsArr)
 
-  useEffect(async() => {
-    await dispatch(getAllComments(parseInt(storyId)))
+  useEffect(() => {
+      dispatch(getAllComments(parseInt(storyId)))
   }, [dispatch, storyId])
 
   if (!reviewsArr.length) return null
