@@ -105,8 +105,4 @@ export default function likesReducer(state = initialState, action) {
       return state;
   }
 }
-// Footer
-// © 2022 GitHub, Inc.
-// Footer navigation
-// Terms
-// Privacy
+
