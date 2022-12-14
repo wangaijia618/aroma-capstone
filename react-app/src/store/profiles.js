@@ -35,7 +35,7 @@ export const updateUserProfile = (userId, bio, profile_photo) => async(dispatch)
     },
     body: JSON.stringify({
       bio,
-      image_profile_url
+      profile_photo
     }),
   });
   if(res.ok){

@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { getUserProfile } from "../../store/profiles";
 import { useParams, Link} from "react-router-dom";
 import EditProfileModal from "./editModal";
-import UserStoriesFeed from "./Pages/userStoriesFeed";
+// import UserStoriesFeed from "./Pages/userStoriesFeed";
 
 //styles
 import "./Profile.css"
-import '../comments/Comment.css';
-import UserComments from "./Pages/userComments";
-import UserBio from "./Pages/userBio";
+// import '../comments/Comment.css';
+// import UserComments from "./Pages/userComments";
+// import UserBio from "./Pages/userBio";
 
 
 function UserProfile(){
@@ -81,11 +81,11 @@ function UserProfile(){
                     </div>
                 </div>
             </nav>
-            <div className="pages-container">
+            {/* <div className="pages-container">
                 {userStories? <UserStoriesFeed stories={userProfile.Stories}/> : null}
                 {userComments ===  true ? <UserComments comments={userProfile.Comments} sessionUserId={currentUser.id}/>: null}
                 {userBio? <UserBio bio={userProfile.bio}/> : null }
-            </div>
+            </div> */}
         </div>
     );
 };
