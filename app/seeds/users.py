@@ -18,6 +18,13 @@ def seed_users():
     fragonard= User(
         username='Fragonard', email='fragonard@aa.io', password='password', bio='Bonjour, everythins is just right~', profile_photo='https://images.pexels.com/photos/8365659/pexels-photo-8365659.jpeg?auto=compress&cs=tinysrgb&w=1600')
 
+    demo.followed.extend([mfk, lutens, another, noir, gaiac])
+    fragonard.follows.append(gaiac)
+    gaiac.follows.append(fragonard)
+    mfk.follows.append(lutens)
+    lutens.follows.append(mfk)
+    another.follows.append(mfk)
+    
     db.session.add(demo)
     db.session.add(mfk)
     db.session.add(lutens)

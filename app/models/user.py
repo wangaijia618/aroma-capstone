@@ -6,8 +6,8 @@ import datetime
 
 follows = db.Table(
     "follows",
-    db.Column("follower_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
-    db.Column("followed_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+    db.Column("followed_user_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+    db.Column("user_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
 
 )
 
@@ -24,12 +24,12 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.String(300))
     profile_photo = db.Column(db.String(300))
 
-    followers = db.relationship(
+    followed = db.relationship(
         "User",
         secondary=follows,  #variable name line7
-        primaryjoin=(follows.c.followed_id == id),
-        secondaryjoin=(follows.c.follower_id == id),
-        backref=db.backref("following", lazy="dynamic"),
+        primaryjoin=(follows.c.user_id == id),
+        secondaryjoin=(follows.c.followed_user_id == id),
+        backref=db.backref("follows", lazy="dynamic"),
         lazy="dynamic",
     )
 

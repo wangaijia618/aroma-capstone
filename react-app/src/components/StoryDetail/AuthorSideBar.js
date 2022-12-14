@@ -3,15 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { followAUser } from "../../store/follows";
 import AboutMe from '../EndFooter/AboutMe1.js'
+import { getCurUserFollowers } from "../../store/follows";
+import  FollowButton from "../util/FollowButton/index"
+import  FollowingModal from "../util/FollowModal/index.js";
+import FollowsModal from "../util/FollowsModal/index"
 import './index.css'
+
 function AuthorSideBar({ Author }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
-//   useEffect(()=>{
-//     if(sessionUser) dispatch(getCurUserFollowers(sessionUser.id))
-//   })
+  useEffect(()=>{
+    if(sessionUser) dispatch(getCurUserFollowers(sessionUser.id))
+  })
 
   let FollowBtn;
 
@@ -48,14 +53,14 @@ function AuthorSideBar({ Author }) {
         <AboutMe />
       </div>
       {/* </NavLink> */}
-      {/* <div className="followers-count-container"> */}
+      <div className="followers-count-container">
         {/* <p>{Author?.num_followers} Followers</p> */}
-        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
-        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
+        <FollowingModal user={sessionUser} Author={Author} />
+        <FollowsModal user={sessionUser} Author={Author} />
         {/* {FollowBtn} */}
-      {/* </div> */}
-      {/* {sessionUser ? (<FollowButton followerId={Author?.id} />) : null } */}
-      {/* <div className="author-bio-container">About Me: {Author?.bio}</div> */}
+      </div>
+      {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
+      <div className="author-bio-container">About Me: {Author?.bio}</div>
     </div>
   );
 }
