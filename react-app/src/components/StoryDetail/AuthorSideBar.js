@@ -20,14 +20,14 @@ function AuthorSideBar({ Author }) {
 
   let FollowBtn;
 
-  if (sessionUser?.id !== Author?.id) {
-    FollowBtn = <button
-                    className="follow-btn"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        dispatch(followAUser(Author?.id))
-                  }}>Follow</button>;
-  }
+  // if (sessionUser?.id !== Author?.id) {
+  //   FollowBtn = <button
+  //                   className="follow-btn"
+  //                   onClick={(e) => {
+  //                       e.preventDefault()
+  //                       dispatch(followAUser(Author?.id))
+  //                 }}>Follow</button>;
+  // }
 
   return (
     <div className="author-side-bar-container">
@@ -54,13 +54,13 @@ function AuthorSideBar({ Author }) {
       </div>
       {/* </NavLink> */}
       <div className="followers-count-container">
-        {/* <p>{Author?.num_followers} Followers</p> */}
-        <FollowingModal user={sessionUser} Author={Author} />
-        <FollowsModal user={sessionUser} Author={Author} />
+        <p>{Author?.num_followers} Followers</p>
+        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
+        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
         {/* {FollowBtn} */}
       </div>
       {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
-      <div className="author-bio-container">About Me: {Author?.bio}</div>
+      {/* <div className="author-bio-container">About Me: {Author?.bio}</div> */}
     </div>
   );
 }
