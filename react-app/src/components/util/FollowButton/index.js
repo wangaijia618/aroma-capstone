@@ -47,7 +47,7 @@ const FollowButton = ({followerId}) => {
         { userFollowerSelf && sessionUser && (
           notFollowing ? (
           <button className="follow-btn-modal-list" onClick={handleFollow}>+ follow</button> ) : (
-          <button className="follow-btn-modal-list" onClick={handleUnfollow}>x unfollow</button>)
+          <button className="follow-btn-modal-list2" onClick={handleUnfollow}>x unfollow</button>)
 
         )}
       </>

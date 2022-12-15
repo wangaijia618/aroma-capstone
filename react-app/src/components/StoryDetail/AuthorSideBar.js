@@ -49,18 +49,18 @@ function AuthorSideBar({ Author }) {
       <div className="author-sidebar-bio">
         {`${Author?.bio}`}
       </div>
+    <div className="followers-count-container">
+        <p>{Author?.num_follows} Follower(s)</p>
+        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
+        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
+      </div>
+      {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
+
       <div className="aboutme-container">
         <AboutMe />
       </div>
-      {/* </NavLink> */}
-      <div className="followers-count-container">
-        <p>{Author?.num_followers} Followers</p>
-        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
-        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
-        {/* {FollowBtn} */}
-      </div>
-      {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
-      {/* <div className="author-bio-container">About Me: {Author?.bio}</div> */}
+
+
     </div>
   );
 }

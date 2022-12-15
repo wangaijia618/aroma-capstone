@@ -33,15 +33,15 @@ const FollowForm = ({Author, user}) => {
                             style={{ textDecoration: "none" }}
                           >
                             <img
-                              src={ follower.user.image_profile_url ? follower.user.image_profile_url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU" }
+                              src={ follower.user.profile_photo ? follower.user.profile_photo : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU" }
                               className="profile-img"
                             />
                           </NavLink>
                         </div>
                         <div className="name-info-card">
-                          <span>{follower?.user.first_name}</span>
+                          <span>{follower?.user.username}</span>
                           <span> </span>
-                          <span>{follower?.user.last_name}</span>
+
                         </div>
                         <div className="follow-btn-card">
                           <FollowButton followerId={follower.user.id} />

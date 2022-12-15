@@ -21,11 +21,11 @@ if (process.env.NODE_ENV !== "production") {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <FollowModalProvider>
+      {/* <FollowModalProvider> */}
         <ModalProvider>
           <App />
         </ModalProvider>
-      </FollowModalProvider>
+      {/* </FollowModalProvider> */}
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')

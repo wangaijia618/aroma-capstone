@@ -75,6 +75,8 @@ class Story(db.Model):
                 "id": self.user.id,
                 "username": self.user.username,
                 "bio": self.user.bio,
-                "profile_photo": self.user.profile_photo
+                "profile_photo": self.user.profile_photo,
+                'num_followers': self.user.num_followers(),
+                'num_follows': self.user.num_follows()
             }
         }
