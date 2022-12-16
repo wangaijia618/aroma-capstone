@@ -77,5 +77,5 @@ class Story(db.Model):
                 "bio": self.user.bio,
                 "profile_photo": self.user.profile_photo
             },
-            'like_accounts': [like.to_dict() for like in self.likes]
+            # 'like_accounts': [like.to_dict() for like in self.likes]
         }

@@ -3,26 +3,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { followAUser } from "../../store/follows";
 import AboutMe from '../EndFooter/AboutMe1.js'
+import { getCurUserFollowers } from "../../store/follows";
+import  FollowButton from "../util/FollowButton/index"
+
+
 import './index.css'
+
 function AuthorSideBar({ Author }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
-//   useEffect(()=>{
-//     if(sessionUser) dispatch(getCurUserFollowers(sessionUser.id))
-//   })
+  useEffect(()=>{
+    if(sessionUser) dispatch(getCurUserFollowers(sessionUser.id))
+  })
 
-  let FollowBtn;
+  // let FollowBtn;
 
-  if (sessionUser?.id !== Author?.id) {
-    FollowBtn = <button
-                    className="follow-btn"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        dispatch(followAUser(Author?.id))
-                  }}>Follow</button>;
-  }
+  // if (sessionUser?.id !== Author?.id) {
+  //   FollowBtn = <button
+  //                   className="follow-btn"
+  //                   onClick={(e) => {
+  //                       e.preventDefault()
+  //                       dispatch(followAUser(Author?.id))
+  //                 }}>Follow</button>;
+  // }
 
   return (
     <div className="author-side-bar-container">
@@ -44,18 +49,19 @@ function AuthorSideBar({ Author }) {
       <div className="author-sidebar-bio">
         {`${Author?.bio}`}
       </div>
+      <div className="followers-count-container">
+        <p>{Author?.num_follows} Followers</p>
+        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
+        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
+      </div>
+      {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
+
       <div className="aboutme-container">
         <AboutMe />
       </div>
-      {/* </NavLink> */}
-      {/* <div className="followers-count-container"> */}
-        {/* <p>{Author?.num_followers} Followers</p> */}
-        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
-        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
-        {/* {FollowBtn} */}
-      {/* </div> */}
-      {/* {sessionUser ? (<FollowButton followerId={Author?.id} />) : null } */}
-      {/* <div className="author-bio-container">About Me: {Author?.bio}</div> */}
+
+
+
     </div>
   );
 }

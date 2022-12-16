@@ -59,11 +59,11 @@ class User(db.Model, UserMixin):
     #     if not self.is_following(user):
     #         self.followed.append(user)
 
-    # def list_followers(self):
-    #     return self.followed.all()
+    def list_followers(self):
+        return self.followers.all()
 
-    # def list_follows(self):
-    #     return self.follows.all()
+    def list_follows(self):
+        return self.follows.all()
 
     def to_dict(self):
         return {
@@ -71,5 +71,13 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'bio': self.bio,
-            'profile_photo': self.profile_photo
+            'profile_photo': self.profile_photo,
+            'num_followers': self.num_followers(),
+            'num_follows': self.num_follows()
         }
+
+    def num_followers(self):
+        return len(self.list_followers())
+
+    def num_follows(self):
+        return len(self.list_follows())
