@@ -78,5 +78,6 @@ class Story(db.Model):
                 "profile_photo": self.user.profile_photo,
                 'num_followers': self.user.num_followers(),
                 'num_follows': self.user.num_follows()
-            }
+            },
+            'like_accounts': [like.to_dict() for like in self.likes]
         }
