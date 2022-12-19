@@ -6,7 +6,7 @@ import noimage from "./noimage.jpg"
 import "./Profile.css"
 import { useState } from "react"
 import { Modal } from "../../context/Modal"
-// import { FaStar } from "react-icons/fa"
+
 import StoryPreview from "../Feed/StoryPreview";
 
 
