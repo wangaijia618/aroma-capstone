@@ -156,9 +156,9 @@
     color:black;
   } */
 
-  .user-profile-page {
+  /* .user-profile-page {
     display: flex;
-    /* flex-direction: column; */
+
     flex-flow: column wrap;
     width:90%;
     background-color: white;
@@ -223,7 +223,7 @@
 
   .write-link {
     align-self: flex-end;
-    /* background-color: #292929; */
+
     border: 0px;
     color: white;
     cursor: pointer;
@@ -260,4 +260,4 @@
     align-self: baseline;
     align-self: center;
 
-  }
+  } */

@@ -6,7 +6,7 @@ import App from './App';
 import configureStore from './store';
 import * as sessionActions from "./store/session";
 import { ModalProvider } from "./context/Modal";
-import { FollowModalProvider} from './context/followModal'
+// import { FollowModalProvider} from './context/followModal'
 
 const store = configureStore();
 
