@@ -155,3 +155,109 @@
     border: 1px black;
     color:black;
   } */
+
+  /* .user-profile-page {
+    display: flex;
+
+    flex-flow: column wrap;
+    width:90%;
+    background-color: white;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+
+  .user-details{
+      display:flex;
+      flex-direction: row;
+      width: 50%;
+  }
+
+  .user-pic-placeholder{
+      width: 100px;
+      height: fit-content;
+  }
+
+  .image-container{
+    display: flex;
+    align-self: flex-start;
+
+  }
+
+  .user-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+  }
+
+  .user-name{
+    font-size: xx-large;
+    font-weight: 400;
+  }
+
+  .details-container{
+    display: block;
+  }
+
+  .toggle-container{
+      display: flex;
+      flex-direction: column;
+      align-self:center;
+      border-bottom: 0.25px solid #4e4e4e;
+      max-width: 100%;
+  }
+
+  .options-container{
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+
+  }
+
+  .write-link {
+    align-self: flex-end;
+
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    justify-content: center;
+    border-radius: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  .toggle-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 10px;
+  }
+
+  .toggle-button:hover {
+    opacity: 0.8;
+  }
+
+  .toggle-button-selected{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #292929;
+
+  }
+
+  .pages-container{
+    align-self: baseline;
+    align-self: center;
+
+  } */

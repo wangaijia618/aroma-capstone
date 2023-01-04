@@ -6,8 +6,8 @@ import datetime
 
 follows = db.Table(
     "follows",
-    db.Column("follower_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
-    db.Column("followed_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+    db.Column("followed_user_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+    db.Column("user_id", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
 
 )
 
@@ -24,16 +24,16 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.String(300))
     profile_photo = db.Column(db.String(300))
 
-    followers = db.relationship(
+    followed = db.relationship(
         "User",
         secondary=follows,  #variable name line7
-        primaryjoin=(follows.c.followed_id == id),
-        secondaryjoin=(follows.c.follower_id == id),
-        backref=db.backref("following", lazy="dynamic"),
+        primaryjoin=(follows.c.user_id == id),
+        secondaryjoin=(follows.c.followed_user_id == id),
+        backref=db.backref("follows", lazy="dynamic"),
         lazy="dynamic",
     )
 
-    # likes = db.relationship("Like", back_populates='user', cascade='all, delete')
+    likes = db.relationship("Like", back_populates='user', cascade='all, delete')
     comments = db.relationship("Comment", back_populates='user', cascade='all, delete')
     stories = db.relationship("Story", back_populates='user', cascade='all, delete')
 
@@ -48,19 +48,19 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    # def is_following(self, user):
-    #     return self.followed.filter(follows.c.followed_user_id == user.id).count() > 0
+    def is_following(self, user):
+        return self.followed.filter(follows.c.followed_user_id == user.id).count() > 0
 
-    # def unfollow(self, user):
-    #     if(self.is_following(user)):
-    #         self.followed.remove(user)
+    def unfollow(self, user):
+        if(self.is_following(user)):
+            self.followed.remove(user)
 
-    # def follow(self, user):
-    #     if not self.is_following(user):
-    #         self.followed.append(user)
+    def follow(self, user):
+        if not self.is_following(user):
+            self.followed.append(user)
 
     def list_followers(self):
-        return self.followers.all()
+        return self.followed.all()
 
     def list_follows(self):
         return self.follows.all()
@@ -75,7 +75,15 @@ class User(db.Model, UserMixin):
             'num_followers': self.num_followers(),
             'num_follows': self.num_follows()
         }
-
+    def author_side_bar_to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'bio': self.bio,
+            'profile_photo': self.profile_photo,
+            'num_followers': self.num_followers(),
+            'num_follows': self.num_follows()
+        }
     def num_followers(self):
         return len(self.list_followers())
 

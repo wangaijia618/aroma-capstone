@@ -22,13 +22,18 @@ class Story(db.Model):
 
 #relationship
     user = db.relationship("User", back_populates="stories")
-    # likes = db.relationship("Like", back_populates="story", cascade='all, delete')
+    likes = db.relationship("Like", back_populates="story", cascade='all, delete')
     comments = db.relationship("Comment", back_populates="story", cascade='all, delete')
 
 
 #####################################
+<<<<<<< HEAD
     # def num_likes(self):
         # return len(self.likes)
+=======
+    def num_likes(self):
+        return len(self.likes)
+>>>>>>> dev1
 
     def num_comments(self):
         return len(self.comments)
@@ -69,13 +74,21 @@ class Story(db.Model):
             'img': self.img,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            # 'num_likes': self.num_likes(),
+            'num_likes': self.num_likes(),
             'num_comments': self.num_comments(),
             'Author': {
                 "id": self.user.id,
                 "username": self.user.username,
                 "bio": self.user.bio,
+<<<<<<< HEAD
                 "profile_photo": self.user.profile_photo
             },
             # 'like_accounts': [like.to_dict() for like in self.likes]
+=======
+                "profile_photo": self.user.profile_photo,
+                'num_followers': self.user.num_followers(),
+                'num_follows': self.user.num_follows()
+            },
+            'like_accounts': [like.to_dict() for like in self.likes]
+>>>>>>> dev1
         }

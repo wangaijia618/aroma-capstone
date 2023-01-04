@@ -1,16 +1,16 @@
-#modal {
+/* #follow-modal {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     display: flex;
+
     justify-content: center;
     align-items: center;
-    z-index: 500;
   }
 
-  #modal-background {
+  #follow-modal-background {
     position: fixed;
     top: 0;
     right: 0;
@@ -19,9 +19,10 @@
     background-color: rgba(0, 0, 0, 0.7);
   }
 
-  #modal-content {
+  #follow-modal-content {
     position: absolute;
-    background-color: white;
-    border-radius: 20px;
-
-  }
+    background-color:white;
+    width: 278px;
+    height: 295px;
+    border-radius: 5px;
+  } */

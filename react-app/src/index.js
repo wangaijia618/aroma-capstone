@@ -6,6 +6,7 @@ import App from './App';
 import configureStore from './store';
 import * as sessionActions from "./store/session";
 import { ModalProvider } from "./context/Modal";
+// import { FollowModalProvider} from './context/followModal'
 
 const store = configureStore();
 
@@ -20,9 +21,11 @@ if (process.env.NODE_ENV !== "production") {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* <FollowModalProvider> */}
         <ModalProvider>
           <App />
         </ModalProvider>
+      {/* </FollowModalProvider> */}
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')

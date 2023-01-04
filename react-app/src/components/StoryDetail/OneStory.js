@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import EditStoryBtn from "../StoryComponent/EditStory/EditStoryBtn";
 import { useHistory, NavLink } from "react-router-dom";
-// import LikeStory from "../util/LikeButton/LikeStory/index"
+import LikeStory from "../util/LikeButton/index"
 // import Ellipse from "../util/EditEllipses/index";
 // import CommentsButton from "../comments/CommentsButton";
 import LoadStoryComments from "../comments/LoadStoryComments";
@@ -72,7 +72,7 @@ function OneStory({ story, storyId }) {
     <div className="full-story-container">
       <div className="full-story-heading-container">
         <div className="full-story-author-container">
-        {/* <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}> */}
+        <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}>
           <div
             className="full-story-profile-image-container"
             style={{
@@ -83,7 +83,7 @@ function OneStory({ story, storyId }) {
               }')`,
             }}
           ></div>
-           {/* </NavLink> */}
+           </NavLink>
           <div className="full-story-next-to-profile-pic">
           {/* <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}> */}
             <div className="full-story-author-name">
@@ -111,9 +111,9 @@ function OneStory({ story, storyId }) {
       </div>
       <div className="story-reactions-container">
         <div className="likes-count">
-          {/* <LikeStory story={story} storyId={storyId} /> */}
+          <LikeStory story={story} storyId={storyId} />
         </div>
-        {/* <span className="reactions">{story?.num_likes} likes</span> */}
+        <span className="reactions">{story?.num_likes} likes</span>
         {/* <div className="comment-count"> */}
           {/* <CommentsButton id={storyId} /> */}
         {/* </div> */}

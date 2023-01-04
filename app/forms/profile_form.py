@@ -5,5 +5,5 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 
 class ProfileForm(FlaskForm):
     bio = StringField('bio', validators=[DataRequired()])
-    image_profile_url = StringField('image_profile_url')
+    profile_photo = StringField('profile_photo')
     submit = SubmitField('Save')

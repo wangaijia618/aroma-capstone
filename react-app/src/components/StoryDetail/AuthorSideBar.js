@@ -5,8 +5,8 @@ import { followAUser } from "../../store/follows";
 import AboutMe from '../EndFooter/AboutMe1.js'
 import { getCurUserFollowers } from "../../store/follows";
 import  FollowButton from "../util/FollowButton/index"
-
-
+import  FollowingModal from "../util/FollowModal/index.js";
+import FollowsModal from "../util/FollowsModal/index"
 import './index.css'
 
 function AuthorSideBar({ Author }) {
@@ -49,8 +49,8 @@ function AuthorSideBar({ Author }) {
       <div className="author-sidebar-bio">
         {`${Author?.bio}`}
       </div>
-      <div className="followers-count-container">
-        <p>{Author?.num_follows} Followers</p>
+    <div className="followers-count-container">
+        <p>{Author?.num_follows} Follower(s)</p>
         {/* <FollowingModal user={sessionUser} Author={Author} /> */}
         {/* <FollowsModal user={sessionUser} Author={Author} /> */}
       </div>
@@ -59,7 +59,6 @@ function AuthorSideBar({ Author }) {
       <div className="aboutme-container">
         <AboutMe />
       </div>
-
 
 
     </div>

@@ -14,6 +14,7 @@ import FullStoryPage from "./components/StoryDetail/FullStoryPage"
 import CreateStory from "./components/CreateStory"
 import Profile from "./components/Profile"
 import LoadUserComments from './components/comments/LoadUserComments';
+import UserProfile from './components/Profile/ProfilePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,8 +58,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/users/:userId' exact={true} >
-          <User />
+        <Route path="/profiles/:userId" exact={true}>
+          <UserProfile />
         </Route>
 
         <Route>
