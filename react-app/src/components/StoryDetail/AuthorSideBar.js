@@ -54,11 +54,12 @@ function AuthorSideBar({ Author }) {
 
     <div className="followers-count-container">
         <p>{Author?.num_follows} Follower(s)</p>
+        {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
+
+    </div>
+
         <FollowingModal user={sessionUser} Author={Author} />
         <FollowsModal user={sessionUser} Author={Author} />
-      </div>
-      {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
-
       <div className="aboutme-container">
         <AboutMe />
       </div>
