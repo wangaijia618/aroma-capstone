@@ -32,7 +32,7 @@ function AuthorSideBar({ Author }) {
   return (
     <div className="author-side-bar-container">
       {/* <div className="black-bar"> </div> */}
-      {/* <NavLink to={`/profiles/${Author?.id}`} style={{ textDecoration: "none" }}> */}
+      <NavLink to={`/profiles/${Author?.id}`} style={{ textDecoration: "none" }}>
       <div
         className="author-sidebar-profile-image-container"
         style={{
@@ -43,16 +43,19 @@ function AuthorSideBar({ Author }) {
           }')`,
         }}
       ></div>
+
       <div className="author-sidebar-name">
         {`${Author?.username}`}
       </div>
       <div className="author-sidebar-bio">
         {`${Author?.bio}`}
       </div>
+      </NavLink>
+
     <div className="followers-count-container">
         <p>{Author?.num_follows} Follower(s)</p>
-        {/* <FollowingModal user={sessionUser} Author={Author} /> */}
-        {/* <FollowsModal user={sessionUser} Author={Author} /> */}
+        <FollowingModal user={sessionUser} Author={Author} />
+        <FollowsModal user={sessionUser} Author={Author} />
       </div>
       {sessionUser ? (<FollowButton followerId={Author?.id} />) : null }
 

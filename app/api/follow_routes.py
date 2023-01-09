@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from datetime import datetime
 from .auth_routes import validation_errors_to_error_messages
-from app.models import User, db
+from app.models import User, db, Story
 
 follow_routes = Blueprint('follows', __name__)
 
@@ -73,10 +73,11 @@ def user_profile(id):
     user = User.query.get(id)
     if user:
         author_profile = user.author_side_bar_to_dict()
-        comments = [comment.to_dict(id) for comment in user.my_comments]
-        stories = [story.to_dict() for story in user.my_stories]
+        comments = [comment.to_dict() for comment in user.comments]
+        stories = [story.full_story_to_dict() for story in user.stories]
         author_profile['Comments'] = comments
         author_profile['Stories'] = stories
         return jsonify({'Author': author_profile}), 200
+        # return user.author_side_bar1_to_dict()
     else:
         return jsonify({'message': 'User could not be found'}), 404

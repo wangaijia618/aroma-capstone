@@ -6,11 +6,12 @@ import { getUserProfile } from '../../store/profiles';
 import "./editForm.css"
 
 function EditProfileForm({closeModal}){
-    const [bio, setBio] = useState('');
-    const [image_profile_url, setImageProfileURL] = useState('');
+    const user = useSelector(state => state.session.user)
+    const [bio, setBio] = useState(user.bio);
+    const [profile_photo, setProfilePhoto] = useState(user.profile_photo);
     const [message, setMessage] = useState("");
 
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 
 
@@ -20,7 +21,7 @@ function EditProfileForm({closeModal}){
             setMessage("Fill out 'About' section or exit modal")
         }
         else {
-            await dispatch(updateUserProfile(user.id, bio, image_profile_url))
+            await dispatch(updateUserProfile(user.id, bio, profile_photo))
             dispatch(getUserProfile(user.id))
             exitFromModal()
         }
@@ -31,7 +32,7 @@ function EditProfileForm({closeModal}){
     };
 
     const updateImage = (e) => {
-        setImageProfileURL(e.target.value);
+        setProfilePhoto(e.target.value);
     };
 
     const exitFromModal = (e) => {
@@ -68,7 +69,7 @@ function EditProfileForm({closeModal}){
                         className='user-image-input'
                         name='image_profile_url'
                         type='text'
-                        value= {image_profile_url}
+                        value= {profile_photo}
                         onChange={updateImage}
                     />
                 </div>

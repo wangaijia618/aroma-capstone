@@ -17,7 +17,7 @@ function FollowsModal({ Author, user }) {
           }
         }}
       >
-        follows {Author?.num_followers}
+      +following {Author?.num_followers}
       </button>
       {showModal && (
         <FollowModal onClose={() => setShowModal(false)}>

@@ -84,6 +84,7 @@ class User(db.Model, UserMixin):
             'num_followers': self.num_followers(),
             'num_follows': self.num_follows()
         }
+
     def num_followers(self):
         return len(self.list_followers())
 
