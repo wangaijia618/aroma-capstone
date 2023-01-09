@@ -24,6 +24,7 @@ export const getUserProfile = (userId) => async(dispatch) => {
     if(res.ok){
       const profile = await res.json();
       dispatch(userProfile(profile.Author));
+      // dispatch(userProfile(profile));
     }
 };
 

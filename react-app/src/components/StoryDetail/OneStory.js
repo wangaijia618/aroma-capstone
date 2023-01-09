@@ -85,11 +85,11 @@ function OneStory({ story, storyId }) {
           ></div>
            </NavLink>
           <div className="full-story-next-to-profile-pic">
-          {/* <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}> */}
+          <NavLink to={`/profiles/${story?.Author?.id}`} style={{ textDecoration: "none" }}>
             <div className="full-story-author-name">
               {`${story?.Author?.username}`}
             </div>
-            {/* </NavLink> */}
+            </NavLink>
             <div className="full-story-dates">
               {CreatedDate}
               {EditedDate}

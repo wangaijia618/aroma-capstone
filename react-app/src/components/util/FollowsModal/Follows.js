@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserFollowers } from "../../../store/follows";
 import { NavLink } from "react-router-dom";
@@ -9,6 +9,7 @@ import { getCurUserFollowers } from "../../../store/follows";
 const FollowsForm = ({ Author, user }) => {
   const dispatch = useDispatch();
   const follows = useSelector((state) => state.followsState.follows);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     dispatch(getUserFollowers(Author.id));
     dispatch(getCurUserFollowers(user.id));
@@ -16,7 +17,7 @@ const FollowsForm = ({ Author, user }) => {
 
   return (
     <div className="follows-modal-container">
-      <span className="follows-header">Follows</span>
+      <span className="follows-header">Following</span>
       <div className="list-follows-container">
         {follows &&
           Object.values(follows)?.map((follow, i) => {
@@ -29,8 +30,8 @@ const FollowsForm = ({ Author, user }) => {
                     style={{ textDecoration: "none" }}
                   >
                     <img
-                      // src={follows?.user.profile_photo ? follows?.user.profile_photo : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU"}
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU"
+                      src={follow?.user.profile_photo ? follow?.user.profile_photo : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU"}
+                      // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sGddmMZFZCqb7aJFx5eV-8FGj2gJWz7abGntj8IuyYdAv7W2HEJyi5WY3xbpLLzf-Zg&usqp=CAU"
                       className="profile-img"
                     />
                   </NavLink>

@@ -30,6 +30,7 @@ function StoryPreview({ story }) {
             {`${story?.Author?.username}`}
           </div>
         </div>
+
         <div className="story-text-preview-container">
           <div className="story-title-preview">
             <p className="story-title-preview-text">{story?.title}</p>

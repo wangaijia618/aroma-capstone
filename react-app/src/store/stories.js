@@ -71,15 +71,15 @@ export const getAllStories = () => async (dispatch) => {
   return res;
 };
 
-//GET User Stories
-// export const userStories = (userId) => async (dispatch) => {
-//   const res = await fetch(`/api/profiles/${userId}/`);
+// GET User Stories
+export const userStories = (userId) => async (dispatch) => {
+  const res = await fetch(`/api/profiles/${userId}/`);
 
-//   if (res.ok) {
-//     const data = await res.json();
-//     dispatch(getUserStories(data.Stories));
-//   }
-// };
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(getUserStories(data.Stories));
+  }
+};
 //GET CURRENT user stories
 export const getMyStories = () => async (dispatch) => {
   const response = await fetch("/api/stories/current")
