@@ -14,7 +14,7 @@ import HorizontalNavBar from '../navbar/HorizontalNavBar/HorizontalNavBar.js'
 import  FollowingModal from "../util/FollowModal/index.js";
 import FollowsModal from "../util/FollowsModal/index"
 
-function UserProfile({Author}){
+function UserProfile(){
      const dispatch = useDispatch();
      const currentUser = useSelector(state => state.session.user);
      const userProfile = useSelector(state => state.profileState);
