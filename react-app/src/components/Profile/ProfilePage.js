@@ -20,39 +20,40 @@ function UserProfile(){
      const userProfile = useSelector(state => state.profileState);
      const {userId} = useParams();
      const stories = useSelector(state => state.profileState.Stories);
-
+     const [isLoaded, setIsLoaded] = useState(false)
 
 
 console.log("!!!!!!!!!!!!!!!!", userProfile)
 console.log("@@@@@@@@@@@@@@", currentUser)
      useEffect(() => {
         dispatch(getUserProfile(userId))
+        .then(() => setIsLoaded(true))
      },[dispatch, userId]);
 
 
 
-    const [userStories, setUserStories] = useState(true);
-    const [userComments, setUserComments] = useState(false);
-    const [userBio, setUserBio] = useState(false);
+    // const [userStories, setUserStories] = useState(true);
+    // const [userComments, setUserComments] = useState(false);
+    // const [userBio, setUserBio] = useState(false);
 
-    const handleStoriesPage = () => {
-        setUserStories(true)
-        setUserComments(false)
-        setUserBio(false)
-    };
+    // const handleStoriesPage = () => {
+    //     setUserStories(true)
+    //     setUserComments(false)
+    //     setUserBio(false)
+    // };
 
-    const handleCommentPage = () => {
-        setUserComments(true)
-        setUserBio(false)
-        setUserStories(false)
+    // const handleCommentPage = () => {
+    //     setUserComments(true)
+    //     setUserBio(false)
+    //     setUserStories(false)
 
-    };
+    // };
 
-    const handleAboutPage = () => {
-        setUserComments(false)
-        setUserStories(false)
-        setUserBio(true)
-    };
+    // const handleAboutPage = () => {
+    //     setUserComments(false)
+    //     setUserStories(false)
+    //     setUserBio(true)
+    // };
     // if (!loaded) {
     //     return null;
     //   }
@@ -60,6 +61,8 @@ console.log("@@@@@@@@@@@@@@", currentUser)
     //     return null;
     // }
     return (
+        <>
+        {isLoaded && (
         <div className="user-profile-page">
             { currentUser?  <VerticalNavBar />
            :<HorizontalNavBar/> }
@@ -112,7 +115,8 @@ console.log("@@@@@@@@@@@@@@", currentUser)
                 {userComments ===  true ? <UserComments comments={userProfile.Comments} sessionUserId={currentUser.id}/>: null}
                 {userBio? <UserBio bio={userProfile.bio}/> : null }
             </div> */}
-        </div>
+        </div>)}
+        </>
     );
 };
 export default UserProfile;

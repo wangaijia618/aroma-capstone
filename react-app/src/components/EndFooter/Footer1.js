@@ -25,7 +25,7 @@ const Footer = () => {
 
                 <div><i className="fa-brands fa-github"></i></div>
                 <div>
-                  <a href='https://github.com/wangaijia618' className="social-link" target="_blank"><span className='name-link'>Github</span></a>
+                  <a href='https://github.com/wangaijia618/aroma-capstone' className="social-link" target="_blank"><span className='name-link'>Github</span></a>
                 </div>
                 </div>
                 <div className='socials-inner'>
