@@ -135,3 +135,7 @@ Method #3 - Delete/Reinstall Heroku Postgres
 3.	Search “Heroku Postgres” on the add on search bar
 4.	Add free hobby - dev plan, and place order
 5.	Back in our terminal, follow step 3 and 4 from Method #1
+
+
+upper level pipenv run flask run
+cd react-app, npm start
